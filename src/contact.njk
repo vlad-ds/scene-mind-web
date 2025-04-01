@@ -1,0 +1,198 @@
+---
+layout: base.njk
+title: Contact Us
+---
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>Get in touch with our team to discuss your script parsing needs</p>
+  </div>
+</header>
+
+<!-- Contact Section -->
+<section class="content-section">
+  <div class="container">
+    <div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start;">
+      <div class="content-card">
+        <h2>Send Us a Message</h2>
+        <p>Fill out the form below and we'll get back to you within one business day.</p>
+        
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="6963f254-4a54-4ec0-8718-06cb54ca862b">
+          <!-- Custom subject line -->
+          <input type="hidden" name="subject" value="New Message from Script Scanner Pro Website">
+          <!-- Form name for identification -->
+          <input type="hidden" name="from_name" value="Script Scanner Pro">
+          <!-- Redirect to thank you page -->
+          <input type="hidden" name="redirect" value="thanks.html">
+          <!-- Honeypot to prevent spam -->
+          <input type="checkbox" name="botcheck" style="display: none;">
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="name" class="form-label" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--secondary);">Your Name</label>
+            <input type="text" id="name" name="name" class="form-control" style="width: 100%; padding: 0.75rem; border: 1px solid var(--light-gray); border-radius: 4px; background-color: white; color: var(--secondary); font-size: 1rem; transition: border-color 0.3s;" required>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="email" class="form-label" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--secondary);">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" style="width: 100%; padding: 0.75rem; border: 1px solid var(--light-gray); border-radius: 4px; background-color: white; color: var(--secondary); font-size: 1rem; transition: border-color 0.3s;" required>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="company" class="form-label" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--secondary);">Company Name</label>
+            <input type="text" id="company" name="company" class="form-control" style="width: 100%; padding: 0.75rem; border: 1px solid var(--light-gray); border-radius: 4px; background-color: white; color: var(--secondary); font-size: 1rem; transition: border-color 0.3s;">
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--secondary);">Service of Interest</label>
+            <div class="checkboxes" style="margin-bottom: 1.5rem;">
+              <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <input type="checkbox" id="tv-script" name="service_tv_script" value="TV Script" style="margin-right: 0.5rem;">
+                <label for="tv-script">TV Script (€60)</label>
+              </div>
+              <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <input type="checkbox" id="feature-film" name="service_feature_film" value="Feature Film" style="margin-right: 0.5rem;">
+                <label for="feature-film">Feature Film (€90)</label>
+              </div>
+              <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <input type="checkbox" id="tv-season" name="service_tv_season" value="TV Season" style="margin-right: 0.5rem;">
+                <label for="tv-season">TV Season (€275)</label>
+              </div>
+              <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <input type="checkbox" id="extended" name="service_extended" value="Extended Length" style="margin-right: 0.5rem;">
+                <label for="extended">Extended Length (Custom)</label>
+              </div>
+              <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <input type="checkbox" id="volume" name="service_volume" value="Volume Processing" style="margin-right: 0.5rem;">
+                <label for="volume">Volume Processing</label>
+              </div>
+              <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <input type="checkbox" id="custom-demo" name="service_custom_demo" value="Custom Demo" style="margin-right: 0.5rem;">
+                <label for="custom-demo">Request a Custom Demo</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="message" class="form-label" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--secondary);">Your Message</label>
+            <textarea id="message" name="message" class="form-control" style="width: 100%; padding: 0.75rem; border: 1px solid var(--light-gray); border-radius: 4px; background-color: white; color: var(--secondary); font-size: 1rem; transition: border-color 0.3s; min-height: 150px; resize: vertical;" required></textarea>
+          </div>
+          
+          <button type="submit" class="cta-btn">Send Message</button>
+        </form>
+      </div>
+      
+      <div class="content-card">
+        <div style="margin-bottom: 2rem;">
+          <h3 style="display: flex; align-items: center; margin-bottom: 1rem;">
+            <div style="width: 40px; height: 40px; background-color: var(--primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 0.75rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            Email Us
+          </h3>
+          <p><a href="mailto:scriptscan.pro@gmail.com" style="color: var(--primary); text-decoration: none;">script.scan.pro@gmail.com</a></p>
+          <p>We respond to all inquiries within 24 hours during business days.</p>
+        </div>
+        
+        <div style="margin-bottom: 2rem;">
+          <h3 style="display: flex; align-items: center; margin-bottom: 1rem;">
+            <div style="width: 40px; height: 40px; background-color: var(--primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 0.75rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            Office Hours
+          </h3>
+          <p>Monday - Friday: 9:00 AM - 6:00 PM (CET)</p>
+          <p>We're based in Europe but serve clients worldwide.</p>
+        </div>
+        
+        <div class="highlight-box">
+          <h3 style="margin-top: 0;">Quick Response Guarantee</h3>
+          <p>Need an urgent quote for your production? Mention "Rush Quote" in your message and we'll prioritize your inquiry.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="content-section" style="background-color: var(--light);">
+  <div class="container" style="max-width: 800px; text-align: center;">
+    <h2>Frequently Asked Questions</h2>
+    <div style="margin-top: 2rem; text-align: left;">
+      <div class="content-card" style="margin-bottom: 1.5rem;">
+        <h3 style="color: var(--primary-dark);">How quickly can you process my script?</h3>
+        <p>Standard processing time is at most 3 working days, and we send your parsed script immediately when ready. We're working to reduce processing times even further. For urgent needs, our Rush Processing service guarantees delivery within 24 hours.</p>
+      </div>
+      
+      <div class="content-card" style="margin-bottom: 1.5rem;">
+        <h3 style="color: var(--primary-dark);">Can you handle non-English scripts?</h3>
+        <p>Yes! We can process scripts in multiple languages and even provide English translations as an add-on service.</p>
+      </div>
+      
+      <div class="content-card" style="margin-bottom: 1.5rem;">
+        <h3 style="color: var(--primary-dark);">How secure is my script data?</h3>
+        <p>We take security seriously. All scripts are processed in a secure environment, and we're happy to sign NDAs before receiving your content.</p>
+      </div>
+      
+      <div class="content-card">
+        <h3 style="color: var(--primary-dark);">Do you offer discounts for multiple scripts?</h3>
+        <p>Yes, we provide volume pricing for production companies with multiple scripts. Contact us for a custom quote.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Form submission with Web3Forms
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e) {
+      // Optional validation code here
+      
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+      .then(async (response) => {
+        if(response.status == 200) {
+          console.log('Success');
+          window.location.href = "/thanks/";
+        } else {
+          console.log('Error');
+          const responseData = await response.json();
+          if (responseData.message) {
+            alert(responseData.message);
+          } else {
+            alert("Something went wrong. Please try again.");
+          }
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        alert("Something went wrong. Please try again.");
+      })
+      .finally(() => {
+        form.reset();
+      });
+      
+      e.preventDefault();
+    });
+  });
+</script> 
