@@ -1,28 +1,89 @@
 ---
 layout: base.njk
-title: Home - Script Scanner Pro
+title: Home - SceneMind.ai
 ---
 
 <!-- Page Header -->
 <header class="page-header">
   <div class="container">
-    <h1>Script Scanner Pro</h1>
-    <p>AI-powered script parsing and analysis for the film and television industry</p>
+    <h1>SceneMind.ai</h1>
+    <p>AI-powered solutions for the film and television industry</p>
   </div>
 </header>
 
 <section class="content-section">
   <div class="container">
-    <h2>Welcome to Script Scanner Pro</h2>
-    <p>This is a placeholder for the homepage content. The main content will be added later.</p>
+    <h2>Transform Your Storytelling Process</h2>
+    <p>SceneMind.ai delivers cutting-edge AI technology specifically designed for screenwriters, directors, and production teams. Our tools help you analyze scripts, generate insights, and improve your storytelling capabilities.</p>
     
-    <div class="highlight-box">
-      <h3>Our Products</h3>
-      <p>Explore our innovative AI solutions for script analysis:</p>
-      <ul class="feature-list">
-        <li><a href="/script_scanner/">Script Scanner</a> - Detailed script metrics and analysis</li>
-        <li><a href="/dylan_ai/">Dylan AI</a> - Professional script coverage and evaluation</li>
-      </ul>
+    <div class="section-title">
+      <h2>Our Products</h2>
+      <p>Discover how our AI solutions can elevate your next production</p>
+    </div>
+    
+    <div class="product-cards">
+      <div class="product-card">
+        <h3><a href="/script_scanner/">Script Scanner</a></h3>
+        <p>AI-powered script parsing that transforms screenplay PDFs into structured data for VFX bidding and production. Identify scenes, characters, and action elements without countless manual hours.</p>
+        <a href="/script_scanner/" class="btn-primary">Learn More</a>
+      </div>
+      
+      <div class="product-card">
+        <h3><a href="/dylan_ai/">Dylan AI</a></h3>
+        <p>Insightful script evaluation for producers, executives, and development teams. Get professional-grade coverage with recommendations, marketability analysis, and detailed craft assessment.</p>
+        <a href="/dylan_ai/" class="btn-primary">Learn More</a>
+      </div>
     </div>
   </div>
-</section> 
+</section>
+
+<style>
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .product-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  
+  .product-icon {
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+  }
+  
+  .btn-primary {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+  }
+</style> 
