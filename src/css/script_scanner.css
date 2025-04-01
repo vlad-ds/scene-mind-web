@@ -1,0 +1,273 @@
+/* Script Scanner Page Styles */
+
+.hero {
+  text-align: center;
+  padding: 4rem 0 3rem;
+  background-color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--gray);
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero .container > ul {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: left;
+}
+
+.hero ul li {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.hero ul li span {
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.hero ul li strong {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.cta-btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: white;
+  padding: 0.9rem 2.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.cta-btn:hover {
+  background-color: #e86207;
+}
+
+/* Center the hero content on mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero ul li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Pricing Section Styles */
+.pricing-section {
+  background-color: var(--light);
+  padding: 4rem 0;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.pricing-header h2 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pricing-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.card-header h3 {
+  font-size: 1.5rem;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-left: 0 !important;
+  position: relative;
+}
+
+.feature-list li::before {
+  content: "✓";
+  color: var(--primary);
+  font-weight: bold;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.add-on-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.add-on-item h4 {
+  color: var(--dark);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.add-on-item h4 span {
+  margin-right: 0.5rem;
+}
+
+/* Make pricing cards responsive */
+@media (max-width: 991px) {
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pricing-card {
+    width: 100%;
+    max-width: 450px;
+  }
+}
+
+/* Process Section Styles */
+.process-section {
+  padding: 4rem 0;
+  background-color: white;
+}
+
+.process-section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.process-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.step {
+  flex: 1;
+  min-width: 220px;
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.step h3 {
+  color: var(--dark);
+  margin-bottom: 0.75rem;
+}
+
+/* Guarantee Section */
+.guarantees {
+  padding: 4rem 0;
+  background-color: var(--light);
+  text-align: center;
+}
+
+.guarantees h2 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.guarantee-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Footer note */
+.footnote {
+  background-color: var(--light);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.footnote p {
+  max-width: 800px;
+  margin: 0 auto 1rem;
+} 
