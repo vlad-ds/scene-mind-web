@@ -22,5 +22,8 @@
   "homepage": "https://github.com/vlad-ds/scene-mind-web#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
+  },
+  "dependencies": {
+    "netlify-plugin-cache": "^1.0.3"
   }
 }
