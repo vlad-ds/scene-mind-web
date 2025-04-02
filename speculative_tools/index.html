@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speculative Tools - Script Scanner Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #334155;
+      --accent: #f97316;
+      --light: #f8fafc;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --light-gray: #e2e8f0;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--secondary);
+      background-color: var(--light);
+      padding-top: 60px; /* Added to account for fixed navbar */
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-dark);
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin: 2rem 0 1rem;
+      color: var(--primary-dark);
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.5rem 0 1rem;
+      color: var(--secondary);
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    /* Navbar styles */
+    .navbar {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+    
+    .navbar-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .navbar-menu li {
+      margin-left: 1.5rem;
+    }
+    
+    .navbar-menu a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .navbar-menu a:hover {
+      color: var(--primary);
+    }
+    
+    .navbar-menu a.active {
+      color: var(--primary);
+      position: relative;
+    }
+    
+    .navbar-menu a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -5px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+    
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--secondary);
+    }
+    
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+    
+    .content-section {
+      padding: 4rem 0;
+      background-color: white;
+    }
+    
+    .content-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .content-card {
+      flex: 1;
+      min-width: 300px;
+      background-color: var(--light);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    
+    .highlight-box {
+      background-color: var(--light);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .comparison-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .comparison-column {
+      width: 100%;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    .comparison-column h3 {
+      color: var(--dark);
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+    
+    .comparison-column .tag {
+      margin-bottom: 1rem;
+    }
+    
+    .feature-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    
+    .feature-list li {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+    
+    .feature-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .metric-item {
+      background-color: var(--light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .dashboard-preview {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      background-color: var(--accent);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: background-color 0.3s;
+    }
+    
+    .cta-btn:hover {
+      background-color: #e86207;
+    }
+    
+    @media (min-width: 768px) {
+      .comparison-container {
+        flex-direction: row;
+      }
+      
+      .comparison-column {
+        width: calc(50% - 1rem);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar .container {
+        flex-wrap: wrap;
+      }
+      
+      .navbar-toggle {
+        display: block;
+      }
+      
+      .navbar-menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        display: none;
+        z-index: 1000;
+      }
+      
+      .navbar-menu.active {
+        display: flex;
+      }
+      
+      .navbar-menu li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .navbar-menu a {
+        display: block;
+        padding: 0.75rem 1rem;
+      }
+    }
+    
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      display: flex;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      margin-right: 1rem;
+      color: var(--primary);
+      align-self: flex-start;
+    }
+    
+    .feature-content {
+      flex: 1;
+    }
+    
+    .feature-content h4 {
+      color: var(--primary-dark);
+      margin: 0 0 0.75rem 0;
+      font-size: 1.1rem;
+    }
+    
+    .feature-content p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="container">
+    <a href="/" class="navbar-brand">Script Scanner Pro</a>
+    <button class="navbar-toggle" id="navbar-toggle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <ul class="navbar-menu" id="navbar-menu">
+      <li><a href="/" >Home</a></li>
+      <li><a href="/script_scanner/" >Script Scanner</a></li>
+      <li><a href="/dylan_ai/" >Dylan AI</a></li>
+      <li><a href="/speculative_tools/" class="active">Speculative Tools</a></li>
+      <li><a href="/about/" >About</a></li>
+      <li><a href="/contact/" >Contact</a></li>
+    </ul>
+  </div>
+</nav> 
+
+  
+<link rel="stylesheet" href="/css/speculative_tools.css">
+
+<div class="hero">
+  <div class="container">
+    <h1>Speculative Tools</h1>
+    <p class="subtitle">AI-Powered Exploration of Narrative Possibilities</p>
+    <p class="subtitle" style="font-size: 1.4rem; margin-bottom: 1rem; font-weight: 500;">Discover alternative storylines, character arcs, and plot developments for your scripts</p>
+    
+    <ul style="list-style: none; margin-bottom: 1.5rem;">
+      <li>
+        <span>→</span>
+        <strong>Creative Expansion:</strong> Generate alternative narrative paths and explore "what if" scenarios to unlock new creative possibilities
+      </li>
+      
+      <li>
+        <span>→</span>
+        <strong>Character Development:</strong> Explore potential character arcs and hidden motivations that might enrich your story
+      </li>
+      
+      <li>
+        <span>→</span>
+        <strong>Plot Enhancement:</strong> Identify potential plot holes and generate creative solutions to strengthen your narrative
+      </li>
+      
+      <li>
+        <span>→</span>
+        <strong>Genre Transformation:</strong> Reimagine your script in different genres to discover unexpected dimensions
+      </li>
+      
+      <li>
+        <span>→</span>
+        <strong>World Building:</strong> Expand your story's universe with consistent and compelling new elements
+      </li>
+    </ul>
+    
+    <a href="#contact" class="cta-btn">Get Started</a>
+  </div>
+</div>
+
+<!-- Core Features Section -->
+<section id="features" style="padding: 4rem 0; background-color: var(--light);">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">Key Capabilities</h2>
+    <p style="text-align: center; margin-bottom: 3rem;">Innovative tools to expand your creative horizons</p>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+      <!-- Feature 1 -->
+      <div style="flex: 1; min-width: 280px; max-width: 360px; background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--primary-dark); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+            </svg>
+          </div>
+          <h3 style="margin: 0;">Narrative Divergence</h3>
+        </div>
+        <p>Generate multiple alternative story paths from key decision points in your script, allowing you to explore different narrative directions and their consequences.</p>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div style="flex: 1; min-width: 280px; max-width: 360px; background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--primary-dark); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 8L12 16"></path>
+              <path d="M8 12L16 12"></path>
+            </svg>
+          </div>
+          <h3 style="margin: 0;">Character Depth Explorer</h3>
+        </div>
+        <p>Analyze your characters and generate potential backstories, motivations, and psychological profiles that could add depth and complexity to your narrative.</p>
+      </div>
+      
+      <!-- Feature 3 -->
+      <div style="flex: 1; min-width: 280px; max-width: 360px; background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--primary-dark); display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <h3 style="margin: 0;">Genre Transformer</h3>
+        </div>
+        <p>Transform your script across different genres—from drama to thriller, comedy to horror—to discover new angles and creative possibilities for your story.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Use Cases Section -->
+<section style="padding: 4rem 0; background-color: white;">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">Creative Applications</h2>
+    <p style="text-align: center; margin-bottom: 3rem;">How industry professionals are using Speculative Tools</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <!-- Use Case 1 -->
+      <div style="background-color: var(--light); border-radius: 8px; padding: 2rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+        <h3>Writers Room Enhancement</h3>
+        <p>TV writing teams use our tools to quickly generate alternative story directions when facing creative blocks, allowing them to explore multiple narrative paths simultaneously and choose the most compelling options.</p>
+      </div>
+      
+      <!-- Use Case 2 -->
+      <div style="background-color: var(--light); border-radius: 8px; padding: 2rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+        <h3>Script Development</h3>
+        <p>Screenwriters use our character development tools to discover deeper motivations and backstories, creating more complex and believable characters that resonate with audiences.</p>
+      </div>
+      
+      <!-- Use Case 3 -->
+      <div style="background-color: var(--light); border-radius: 8px; padding: 2rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
+        <h3>Adaptation Planning</h3>
+        <p>Production companies use our genre transformation tools to explore how source material might be adapted across different formats and genres, identifying the most promising adaptation strategies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section id="contact" style="padding: 4rem 0; background-color: var(--primary); color: white; text-align: center;">
+  <div class="container">
+    <h2 style="margin-bottom: 1rem;">Ready to Expand Your Creative Horizons?</h2>
+    <p style="margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">Our Speculative Tools can help you discover new dimensions in your storytelling and unlock creative possibilities you never imagined.</p>
+    
+    <a href="/contact" style="display: inline-block; background-color: white; color: var(--primary); font-weight: bold; padding: 1rem 2rem; border-radius: 4px; text-decoration: none; font-size: 1.1rem;">Request a Demo</a>
+  </div>
+</section> 
+
+  <!-- Footer Section -->
+<footer style="background-color: var(--dark); color: white; padding: 3rem 0;">
+  <div class="container">
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+      <div style="flex: 2; min-width: 300px;">
+        <h3 style="color: white; margin-top: 0;">SceneMind.ai</h3>
+        <p>AI-powered script parsing and analysis for the film and television industry.</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="color: white; margin-top: 0; margin-bottom: 1rem;">Products</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="/script_intelligence/" style="color: var(--light-gray); text-decoration: none;">Script Intelligence</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="/dylan_ai/" style="color: var(--light-gray); text-decoration: none;">Dylan AI</a></li>
+        </ul>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="color: white; margin-top: 0; margin-bottom: 1rem;">Company</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="/about/" style="color: var(--light-gray); text-decoration: none;">About</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="/contact/" style="color: var(--light-gray); text-decoration: none;">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div style="margin-top: 3rem; text-align: center; color: var(--gray);">
+      <p>&copy; 2025 SceneMind.ai. All rights reserved.</p>
+    </div>
+  </div>
+</footer> 
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('navbar-toggle').addEventListener('click', function() {
+      document.getElementById('navbar-menu').classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const navbarMenu = document.getElementById('navbar-menu');
+      const navbarToggle = document.getElementById('navbar-toggle');
+      
+      if (!navbarToggle.contains(event.target) && !navbarMenu.contains(event.target)) {
+        navbarMenu.classList.remove('active');
+      }
+    });
+    
+    // Add active class to current nav item
+    const navLinks = document.querySelectorAll('.navbar-menu a');
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html> 

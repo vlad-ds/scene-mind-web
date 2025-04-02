@@ -1,0 +1,93 @@
+introducing Dylan AI: Insightful Script Analysis for Informed Decisions
+
+COPY
+
+Okay, understood. Targeting producers and executives requires a shift in focus from creative development feedback (for the writer) to evaluation efficiency, decision support, and risk assessment (for the producer/exec).
+
+Let's refine the naming and rewrite the landing page copy with this crucial audience in mind.
+
+Phase 1: Product Name Ideas (Producer/Exec Focus)
+The previous names can still work, but let's re-evaluate with the producer perspective:
+
+Script Insight AI: Still strong. Producers need quick, reliable insights.
+AI Script Coverage Pro: Clear, functional. "Pro" implies professional use.
+Script Scanner Analysis Pro: Leverages existing brand, focuses on analysis which producers need.
+Script Assess AI: Directly speaks to the evaluation function producers perform. Clear and functional.
+Exec Coverage AI: Targets the audience directly, though maybe a bit limiting.
+Coverage Compass AI: Implies guidance for decision-making.
+Recommendation:
+
+Script Insight AI, AI Script Coverage Pro, and Script Assess AI seem like the strongest contenders now.
+Script Insight AI is concise and benefit-driven.
+AI Script Coverage Pro clearly states what it is and who it's for.
+Script Assess AI is very direct about its core function for this audience.
+Let's continue using [Product Name] in the copy.
+
+Phase 2: Landing Page Copy (Producer/Executive Focus)
+(Hero Section)
+
+Headline: Make Faster, Smarter Script Decisions with AI-Powered Coverage
+
+Sub-headline: Comprehensive, objective script evaluation for Producers, Executives, and Development Teams. Get consistent insights, delivered rapidly.
+
+(Introduction / Problem-Solution)
+
+Section Title: Buried in Scripts? Need Consistent, Actionable Assessments?
+
+The constant influx of screenplays demands efficient filtering and reliable evaluation. Inconsistent reader feedback, slow turnarounds, and the sheer volume can bottleneck your development pipeline and impact decision-making. You need a dependable tool to quickly identify potential, assess risks, and focus your resources effectively.
+
+Introducing [Product Name]: Your Strategic Advantage in Script Assessment.
+
+[Product Name] harnesses advanced AI, trained on deep narrative analysis and market context, to deliver comprehensive script coverage tailored for industry decision-makers. Get objective, insightful, and consistent evaluations with unprecedented speed, empowering you to prioritize effectively and act decisively. Built with high-quality AI, this tool provides the reliable data you need to navigate the script landscape confidently.
+
+(NEW: Benefits Section - Why Choose This?)
+
+Section Title: Gain an Edge in Your Evaluation Workflow
+
+Accelerate Decisions: Drastically cut down script assessment time. Get comprehensive coverage in days, enabling faster identification of promising projects and quicker passes.
+Ensure Consistent Quality: Eliminate reader variability. Receive standardized, high-quality, objective analysis on every script submission.
+Improve Efficiency: Increase your team's bandwidth. Handle larger script volumes without scaling manual reading resources proportionally.
+Make Informed Investments: Leverage data-driven insights on plot, character, structure, marketability, and execution before committing further resources.
+Focus Your Resources: Quickly identify high-potential scripts and confidently filter out those that don't meet your criteria, saving valuable development time and budget.
+(What You Get / Features Section - Re-angled for Evaluation)
+
+Section Title: Actionable Intelligence for Script Evaluation
+
+Each [Product Name] report is structured to provide the critical information you need, fast:
+
+Clear Recommendation & Overall Assessment: A concise verdict (Recommend, Consider, Pass) and a synthesized paragraph evaluating the script's potential, execution, and market fit – designed for quick filtering.
+Strengths & Weaknesses: Key takeaways highlighting the script's core merits and critical flaws.
+Logline & Synopsis: Rapidly understand the concept and plot. Essential for determining fit with your mandate.
+Marketability Analysis: Crucial insights into target audience, genre positioning, and relevant Comparable Titles (Comps) to assess commercial viability.
+Genre Classification: A breakdown of primary and secondary genres to understand positioning.
+Character Assessment: Evaluation of main characters' appeal, development, and contribution to the narrative's potential.
+Comprehensive Craft Analysis (High-Level & In-Depth): Detailed evaluation of core screenwriting elements (Structure, Pacing, Dialogue, Premise, Worldbuilding, Theme, Writing Style). Provides the underlying justification for the assessment and flags specific execution details, available in both summary and detailed formats for deeper dives when needed.
+(Demo Showcase Section)
+
+Section Title: Verify the Quality: Explore Sample AI Assessments
+
+Assess the depth, accuracy, and utility of our AI-generated coverage yourself. Review complete reports for well-known screenplays to see the level of actionable insight [Product Name] delivers.
+
+[Link to Interstellar Report] - Review the full AI Coverage Report for Interstellar.
+[Link to Nosferatu Report (or other movie)] - Examine the complete AI Coverage Report for Nosferatu.
+(Pricing / Status Section)
+
+Section Title: Exclusive Free Preview for Industry Professionals
+
+[Product Name] is currently offered via a Free Preview program specifically for producers, executives, development teams, agencies, and other industry professionals involved in script evaluation.
+
+Integrate this powerful assessment tool into your workflow at no cost during this limited period. Experience the benefits firsthand and provide feedback to help us optimize it for your needs.
+
+(Commercial pricing and tiered access plans will be introduced following the preview phase.)
+
+(Call to Action Section)
+
+Section Title: Streamline Your Script Evaluation Process Today
+
+Ready to leverage AI for faster, more consistent, and insightful script assessment? Contact us to join the free preview program and start submitting scripts.
+
+Button Text: Request Free Preview Access [contact link]
+----------
+
+
+

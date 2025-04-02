@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dylan AI - Script Scanner Pro - Script Scanner Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #334155;
+      --accent: #f97316;
+      --light: #f8fafc;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --light-gray: #e2e8f0;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--secondary);
+      background-color: var(--light);
+      padding-top: 60px; /* Added to account for fixed navbar */
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-dark);
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin: 2rem 0 1rem;
+      color: var(--primary-dark);
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.5rem 0 1rem;
+      color: var(--secondary);
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    /* Navbar styles */
+    .navbar {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+    
+    .navbar-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .navbar-menu li {
+      margin-left: 1.5rem;
+    }
+    
+    .navbar-menu a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .navbar-menu a:hover {
+      color: var(--primary);
+    }
+    
+    .navbar-menu a.active {
+      color: var(--primary);
+      position: relative;
+    }
+    
+    .navbar-menu a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -5px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+    
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--secondary);
+    }
+    
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+    
+    .content-section {
+      padding: 4rem 0;
+      background-color: white;
+    }
+    
+    .content-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .content-card {
+      flex: 1;
+      min-width: 300px;
+      background-color: var(--light);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    
+    .highlight-box {
+      background-color: var(--light);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .comparison-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .comparison-column {
+      width: 100%;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    .comparison-column h3 {
+      color: var(--dark);
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+    
+    .comparison-column .tag {
+      margin-bottom: 1rem;
+    }
+    
+    .feature-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    
+    .feature-list li {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+    
+    .feature-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .metric-item {
+      background-color: var(--light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .dashboard-preview {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      background-color: var(--accent);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: background-color 0.3s;
+    }
+    
+    .cta-btn:hover {
+      background-color: #e86207;
+    }
+    
+    @media (min-width: 768px) {
+      .comparison-container {
+        flex-direction: row;
+      }
+      
+      .comparison-column {
+        width: calc(50% - 1rem);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar .container {
+        flex-wrap: wrap;
+      }
+      
+      .navbar-toggle {
+        display: block;
+      }
+      
+      .navbar-menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        display: none;
+        z-index: 1000;
+      }
+      
+      .navbar-menu.active {
+        display: flex;
+      }
+      
+      .navbar-menu li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .navbar-menu a {
+        display: block;
+        padding: 0.75rem 1rem;
+      }
+    }
+    
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      display: flex;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      margin-right: 1rem;
+      color: var(--primary);
+      align-self: flex-start;
+    }
+    
+    .feature-content {
+      flex: 1;
+    }
+    
+    .feature-content h4 {
+      color: var(--primary-dark);
+      margin: 0 0 0.75rem 0;
+      font-size: 1.1rem;
+    }
+    
+    .feature-content p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-brand">Script Scanner Pro</a>
+    <button class="navbar-toggle" id="navbar-toggle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <ul class="navbar-menu" id="navbar-menu">
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="script_scanner.html" >Script Scanner</a></li>
+      <li><a href="dylan_ai.html" >Dylan AI</a></li>
+      <li><a href="about.html" >About</a></li>
+      <li><a href="contact.html" >Contact</a></li>
+    </ul>
+  </div>
+</nav> 
+
+  
+<!-- Page Header -->
+<header class="page-header" style="background: linear-gradient(135deg, #1d4ed8, #3b82f6, #2563eb); padding: 5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+  <div class="container">
+    <h1 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 1.5rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">Dylan AI</h1>
+    <div style="max-width: 700px; margin: 0 auto; padding: 0 1rem;">
+      <p style="font-size: 1.2rem; margin: 0 auto; line-height: 1.5; letter-spacing: 1px; font-weight: 300; text-transform: uppercase; opacity: 0.9;">Insightful script evaluation for</p>
+      <p style="font-size: 1.6rem; margin: 0.5rem auto 0; line-height: 1.4; font-weight: 600; letter-spacing: 0.5px;"><strong>Producers, Executives, Screenwriters, and Development Teams</strong></p>
+    </div>
+  </div>
+</header>
+
+<!-- Main Features Section -->
+<section class="content-section">
+  <div class="container">
+    <h2>Need to <strong>Improve Script Quality</strong> and Make <strong>Better Investment Decisions</strong>?</h2>
+    <p>The film and television industry demands exceptional quality in storytelling. You need an advanced tool to <strong>elevate script standards, identify high-potential projects, and make smarter development decisions</strong>.</p>
+    
+    <div class="highlight-box">
+      <h3>Introducing Dylan AI: Your <strong>Strategic Advantage</strong> in Script Assessment</h3>
+      <p>Built for <strong>genuine narrative insight</strong> and industry context, Dylan AI delivers <strong>dense, thoughtful analysis</strong> with practical summaries and in-depth evaluations. Discover what makes scripts truly work—or fall short.</p>
+    </div>
+    
+    <h2>Gain an Edge in Your Evaluation Workflow</h2>
+    
+    <div class="content-grid">
+      <div class="content-card">
+        <h3>Accelerate Decisions</h3>
+        <p>Drastically <strong>cut down script assessment time</strong>. Get comprehensive coverage in days, enabling faster identification of promising projects and quicker passes.</p>
+      </div>
+      
+      <div class="content-card">
+        <h3>Ensure Consistent Quality</h3>
+        <p><strong>Eliminate reader variability</strong>. Receive standardized, high-quality, objective analysis on every script submission.</p>
+      </div>
+      
+      <div class="content-card">
+        <h3>Improve Efficiency</h3>
+        <p><strong>Increase your team's bandwidth</strong>. Handle larger script volumes without scaling manual reading resources proportionally.</p>
+      </div>
+      
+      <div class="content-card">
+        <h3>Make Informed Investments</h3>
+        <p>Leverage <strong>data-driven insights</strong> on plot, character, structure, marketability, and execution before committing further resources.</p>
+      </div>
+      
+      <div class="content-card">
+        <h3>Focus Your Resources</h3>
+        <p>Quickly identify <strong>high-potential scripts</strong> and confidently filter out those that don't meet your criteria, saving valuable development time and budget.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="content-section" style="background-color: var(--light);">
+  <div class="container">
+    <h2>Actionable Intelligence for Script Evaluation</h2>
+    <p>Each Dylan AI report is structured to provide the <strong>critical information you need, fast</strong>:</p>
+    
+    <div class="feature-cards">
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-content">
+          <h4>Clear Recommendation & Overall Assessment</h4>
+          <p>A concise verdict (<strong>Recommend, Consider, Pass</strong>) and a synthesized paragraph evaluating the script's potential, execution, and market fit – designed for quick filtering.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">⚖️</div>
+        <div class="feature-content">
+          <h4>Strengths & Weaknesses</h4>
+          <p>Key takeaways highlighting the script's core merits and critical flaws.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <div class="feature-content">
+          <h4>Logline & Synopsis</h4>
+          <p>Rapidly understand the concept and plot. Essential for determining fit with your mandate.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-content">
+          <h4>Marketability Analysis</h4>
+          <p>Crucial insights into <strong>target audience, genre positioning, and relevant Comparable Titles</strong> (Comps) to assess commercial viability.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">👤</div>
+        <div class="feature-content">
+          <h4>Character Assessment</h4>
+          <p>Evaluation of main characters' appeal, development, and contribution to the narrative's potential.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <div class="feature-content">
+          <h4>Comprehensive Craft Analysis</h4>
+          <p>Detailed evaluation of core screenwriting elements (Structure, Pacing, Dialogue, Premise, Worldbuilding, Theme, Writing Style). Provides the <strong>underlying justification for the assessment</strong> and flags specific execution details, available in both summary and detailed formats for deeper dives when needed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- File Format & Language Support Section -->
+<section class="content-section" style="background-color: white;">
+  <div class="container">
+    <h2>Seamless Integration with <strong>Your Workflow</strong></h2>
+    
+    <div class="feature-cards">
+      <div class="feature-card">
+        <div class="feature-icon">📄</div>
+        <div class="feature-content">
+          <h4>Native PDF Support</h4>
+          <p>Submit scripts as standard PDF files – <strong>no special formatting required</strong>. Dylan AI reads raw PDF documents directly, eliminating conversion headaches and preserving original formatting.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <div class="feature-content">
+          <h4>Multilingual Capability</h4>
+          <p>Evaluate scripts written in <strong>multiple languages</strong>. <strong>Facilitate cross-national productions with side-by-side translation</strong> that breaks down language barriers in global co-productions.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-content">
+          <h4>Zero Preparation Required</h4>
+          <p>Upload scripts directly from your existing archives or submissions – <strong>no preprocessing needed</strong>. Dylan AI handles all the parsing and format recognition automatically.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="highlight-box" style="margin-top: 2.5rem;">
+      <h3 style="margin-top: 0;">Work With Scripts As They Come</h3>
+      <p>Dylan AI is designed for the realities of script submissions. No need for writers to use specific software or conform to proprietary formats. Our system parses standard screenplay formats automatically, regardless of which writing tool was used to create them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Role-Specific Value Section -->
+<section class="content-section" style="background-color: var(--light);">
+  <div class="container">
+    <h2>Value for <strong>Every Role</strong> in the Development Pipeline</h2>
+    <p>Dylan AI delivers tailored benefits for each stakeholder in the script evaluation process:</p>
+    
+    <div class="feature-cards">
+      <div class="feature-card">
+        <div class="feature-icon">🎬</div>
+        <div class="feature-content">
+          <h4>For Producers</h4>
+          <p><strong>Filter more efficiently</strong> through script submissions, identifying high-potential projects quickly. Make <strong>data-informed investment decisions</strong> with clear marketability assessments and commercial viability insights. Reduce the risk of committing resources to projects with fundamental flaws.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">👔</div>
+        <div class="feature-content">
+          <h4>For Executives</h4>
+          <p><strong>Scale your development process</strong> without proportionally increasing costs. Get consistent, objective analyses across your entire script library. Compare <strong>quantifiable assessment metrics</strong> across multiple projects to prioritize your production slate strategically.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">✍️</div>
+        <div class="feature-content">
+          <h4>For Screenwriters</h4>
+          <p><strong>Refine your script before submission</strong> to production companies. Identify and address critical weaknesses, strengthen character development, and improve structure with actionable revision guidance. Understand how <strong>industry decision-makers</strong> will evaluate your work and adjust accordingly to maximize chances of acceptance.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <div class="feature-content">
+          <h4>For Development Teams</h4>
+          <p><strong>Increase bandwidth</strong> without expanding headcount, processing more scripts in less time. Maintain quality standards across all evaluations. Focus human creativity on <strong>developing pre-filtered, high-potential scripts</strong> rather than spending time on initial assessments.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="highlight-box" style="margin-top: 2.5rem;">
+      <h3 style="margin-top: 0;">Collaborative Workflow Enhancement</h3>
+      <p>Dylan AI enhances collaboration by providing a common assessment framework. Team members can focus discussions on <strong>substantive creative elements</strong> rather than debating basic quality standards, accelerating the development process from initial read to final production decision.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Demo Section -->
+<section class="content-section">
+  <div class="container">
+    <h2>Verify the Quality: Explore Sample AI Assessments</h2>
+    <p>Assess the depth, accuracy, and utility of our AI-generated coverage yourself. Review <strong>complete reports for well-known screenplays</strong> to see the level of actionable insight Dylan AI delivers.</p>
+    
+    <div class="highlight-box" style="margin: 2.5rem auto; background-color: white;">
+      <h3 style="text-align: center; margin-bottom: 1.5rem;">Character Assessment Example: <span style="color: var(--primary);">Interstellar</span></h3>
+      <img src="img/coverage_1.jpg" alt="Character Assessment - Cooper from Interstellar" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); margin-bottom: 1.5rem;">
+      <p style="font-style: italic; color: var(--gray); text-align: center; max-width: 700px; margin: 0 auto 1.5rem;">Dylan AI provides deep character analysis that highlights motivations, arcs, and potential audience connection.</p>
+      <p>Dylan AI evaluates characters through multiple dimensions: depth, consistency, arc, relatability, and contribution to theme. This assessment helps producers quickly understand character-driven potential and audience engagement factors.</p>
+    </div>
+    
+    <h3 style="margin-top: 3rem;">Complete Sample Reports</h3>
+    <p style="margin-bottom: 2rem;">Experience the depth and utility of Dylan AI coverage with these full sample reports. We've analyzed acclaimed screenplays across different genres to demonstrate our AI's versatility and insight generation capabilities. Available both online and as downloadable PDFs.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin: 2rem 0;">
+      <div style="flex: 1; min-width: 300px; background-color: var(--light); border-radius: 8px; padding: 2rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); display: flex; flex-direction: column;">
+        <h3>Interstellar (2014)</h3>
+        <p>See how Dylan AI analyzes this complex science fiction epic, evaluating its intricate plot structure, character development, and thematic exploration of time, love, and human survival.</p>
+        <div style="margin-top: auto; padding-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="https://static1.squarespace.com/static/5a1c2452268b96d901cd3471/t/5b95b7b0032be4f0cd3a8db2/1536538544682/Interstallar.pdf" target="_blank" class="cta-btn" style="background-color: #1a365d; box-shadow: 0 3px 6px rgba(0,0,0,0.2);" onmouseover="this.style.backgroundColor='#2c4a7c'" onmouseout="this.style.backgroundColor='#1a365d'">Original PDF</a>
+          <a href="https://miniature-icon-2cc.notion.site/Interstellar-2014-Dylan-AI-Report-1f3c449d46144d4aa9b2b34dc194c47b?pvs=4" target="_blank" class="cta-btn" style="background-color: #e05d00; box-shadow: 0 3px 6px rgba(0,0,0,0.2);" onmouseover="this.style.backgroundColor='#ff6b00'" onmouseout="this.style.backgroundColor='#e05d00'">View Online</a>
+          <a href="docs/interstellar.pdf" target="_blank" class="cta-btn" style="background-color: #475569; box-shadow: 0 3px 6px rgba(0,0,0,0.2);" onmouseover="this.style.backgroundColor='#5f738e'" onmouseout="this.style.backgroundColor='#475569'">Download PDF</a>
+        </div>
+      </div>
+      
+      <div style="flex: 1; min-width: 300px; background-color: var(--light); border-radius: 8px; padding: 2rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); display: flex; flex-direction: column;">
+        <h3>The Apprentice (2024)</h3>
+        <p>Explore how Dylan AI breaks down this contemporary biographical drama, analyzing its portrayal of real figures, narrative structures, and thematic elements.</p>
+        <div style="margin-top: auto; padding-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="https://s3.documentcloud.org/documents/25421507/the-apprentice-read-the-screenplay.pdf" target="_blank" class="cta-btn" style="background-color: #1a365d; box-shadow: 0 3px 6px rgba(0,0,0,0.2);" onmouseover="this.style.backgroundColor='#2c4a7c'" onmouseout="this.style.backgroundColor='#1a365d'">Original PDF</a>
+          <a href="https://miniature-icon-2cc.notion.site/The-Apprentice-2024-Dylan-AI-Report-4a105855945d4a73bb686dfaee50dfac?pvs=4" target="_blank" class="cta-btn" style="background-color: #e05d00; box-shadow: 0 3px 6px rgba(0,0,0,0.2);" onmouseover="this.style.backgroundColor='#ff6b00'" onmouseout="this.style.backgroundColor='#e05d00'">View Online</a>
+          <a href="docs/apprentice.pdf" target="_blank" class="cta-btn" style="background-color: #475569; box-shadow: 0 3px 6px rgba(0,0,0,0.2);" onmouseover="this.style.backgroundColor='#5f738e'" onmouseout="this.style.backgroundColor='#475569'">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing/Preview Section -->
+<section class="content-section" style="background-color: var(--light);">
+  <div class="container">
+    <h2>Exclusive <strong>Free Preview</strong> for Industry Professionals</h2>
+    <p>Dylan AI is currently offered via a Free Preview program specifically for producers, executives, development teams, agencies, and other industry professionals involved in script evaluation.</p>
+    
+    <div class="highlight-box">
+      <p>Integrate this powerful assessment tool into your workflow <strong>at no cost</strong> during this limited period. Experience the benefits firsthand and provide feedback to help us optimize it for your needs.</p>
+      <p><em>(Commercial pricing and tiered access plans will be introduced following the preview phase.)</em></p>
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem;">
+      <h3>Streamline Your Script Evaluation Process <strong>Today</strong></h3>
+      <p>Ready to leverage AI for <strong>faster, more consistent, and insightful</strong> script assessment? Contact us to join the free preview program and start submitting scripts.</p>
+      <a href="contact.html" class="cta-btn">Request Free Preview Access</a>
+    </div>
+  </div>
+</section> 
+
+  <!-- Footer Section -->
+<footer style="background-color: var(--dark); color: white; padding: 3rem 0;">
+  <div class="container">
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+      <div style="flex: 2; min-width: 300px;">
+        <h3 style="color: white; margin-top: 0;">Script Scanner Pro</h3>
+        <p>AI-powered script parsing and analysis for the film and television industry.</p>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="color: white; margin-top: 0; margin-bottom: 1rem;">Products</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="script_intelligence.html" style="color: var(--light-gray); text-decoration: none;">Script Intelligence</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="dylan_ai.html" style="color: var(--light-gray); text-decoration: none;">Dylan AI</a></li>
+        </ul>
+      </div>
+      
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="color: white; margin-top: 0; margin-bottom: 1rem;">Company</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: var(--light-gray); text-decoration: none;">About</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="contact.html" style="color: var(--light-gray); text-decoration: none;">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div style="margin-top: 3rem; text-align: center; color: var(--gray);">
+      <p>&copy; 2025 Script Scanner Pro. All rights reserved.</p>
+    </div>
+  </div>
+</footer> 
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('navbar-toggle').addEventListener('click', function() {
+      document.getElementById('navbar-menu').classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const navbarMenu = document.getElementById('navbar-menu');
+      const navbarToggle = document.getElementById('navbar-toggle');
+      
+      if (!navbarToggle.contains(event.target) && !navbarMenu.contains(event.target)) {
+        navbarMenu.classList.remove('active');
+      }
+    });
+    
+    // Add active class to current nav item
+    const navLinks = document.querySelectorAll('.navbar-menu a');
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html> 

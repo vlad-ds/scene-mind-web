@@ -1,0 +1,84 @@
+/* Speculative Tools Page Styles */
+
+.hero {
+  text-align: center;
+  padding: 4rem 0 3rem;
+  background-color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--gray);
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero .container > ul {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: left;
+}
+
+.hero ul li {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.hero ul li span {
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.hero ul li strong {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.cta-btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: white;
+  padding: 0.9rem 2.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.cta-btn:hover {
+  background-color: #e86207;
+}
+
+/* Center the hero content on mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero ul li {
+    font-size: 0.95rem;
+  }
+} 
