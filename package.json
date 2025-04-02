@@ -7,7 +7,8 @@
     "build": "eleventy",
     "start": "eleventy --serve",
     "dev": "eleventy --serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build && gh-pages -d _site"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   },
   "homepage": "https://github.com/vlad-ds/scene-mind-web#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "gh-pages": "^6.3.0"
   },
   "dependencies": {
     "netlify-plugin-cache": "^1.0.3"
