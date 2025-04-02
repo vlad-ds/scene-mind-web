@@ -6,6 +6,8 @@ module.exports = function(eleventyConfig) {
   // Copy the "css" directory to the output
   eleventyConfig.addPassthroughCopy("src/css");
 
+  eleventyConfig.addPassthroughCopy("CNAME");
+
   return {
     dir: {
       input: "src",
