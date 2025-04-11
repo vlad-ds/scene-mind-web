@@ -135,8 +135,14 @@
     .page-header {
       background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       color: white;
-      padding: 3rem 0;
+      padding: 1.5rem 0;
       text-align: center;
+    }
+    
+    .page-header p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0;
     }
     
     .page-header h1 {
@@ -382,14 +388,33 @@
 <header class="page-header">
   <div class="container">
     <h1>Contact Us</h1>
-    <p>Get in touch with our team to discuss your script parsing needs</p>
+    <p>Get in touch with our team to discuss your needs</p>
   </div>
 </header>
 
 <!-- Contact Section -->
 <section class="content-section">
   <div class="container">
-    <div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start;">
+    <div class="contact-content">
+      
+      <!-- Email Us Section (Moved Up) -->
+      <div class="content-card" style="margin-bottom: 3rem;">
+        <div style="margin-bottom: 2rem;">
+          <h3 style="display: flex; align-items: center; margin-bottom: 1rem;">
+            <div style="width: 40px; height: 40px; background-color: var(--primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 0.75rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            Email Us
+          </h3>
+          <p><a href="mailto:contact@scenemind.ai" style="color: var(--primary); text-decoration: none;">contact@scenemind.ai</a></p>
+          <p>We are happy to discuss our products, volume discounts, or any special requirements you may have.</p>
+        </div>
+      </div>
+
+      <!-- Form Section (Now Second) -->
       <div class="content-card">
         <h2>Send Us a Message</h2>
         <p>Fill out the form below and we'll get back to you within one business day.</p>
@@ -425,24 +450,34 @@
             <label class="form-label" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--secondary);">Service of Interest</label>
             <div class="checkboxes" style="margin-bottom: 1.5rem;">
               <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
-                <input type="checkbox" id="script-breakdown" name="service_script_breakdown" value="Script Breakdown" style="margin-right: 0.5rem;">
-                <label for="script-breakdown">Script Breakdown</label>
+                <input type="checkbox" id="script-scanner" name="service_script_scanner" value="Script Scanner (script to spreadsheet)" style="margin-right: 0.5rem;">
+                <label for="script-scanner">Script Scanner (script to spreadsheet)</label>
               </div>
               <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
-                <input type="checkbox" id="qualitative-analysis" name="service_qualitative_analysis" value="Script Qualitative Analysis" style="margin-right: 0.5rem;">
-                <label for="qualitative-analysis">Script Qualitative Analysis</label>
-              </div>
-              <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
-                <input type="checkbox" id="script-versioning" name="service_script_versioning" value="Script Versioning" style="margin-right: 0.5rem;">
-                <label for="script-versioning">Script Versioning</label>
-              </div>
-              <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
-                <input type="checkbox" id="script-translation" name="service_script_translation" value="Script Translation" style="margin-right: 0.5rem;">
-                <label for="script-translation">Script Translation</label>
+                <input type="checkbox" id="dylan-ai" name="service_dylan_ai" value="Dylan AI (qualitative script analysis)" style="margin-right: 0.5rem;">
+                <label for="dylan-ai">Dylan AI (qualitative script analysis)</label>
               </div>
               <div class="checkbox-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
                 <input type="checkbox" id="other" name="service_other" value="Other" style="margin-right: 0.5rem;">
                 <label for="other">Other</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--secondary);">How many scripts would you like to process?</label>
+            <div class="radio-options" style="margin-bottom: 1.5rem;">
+              <div class="radio-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <input type="radio" id="scripts-1-5" name="scripts_volume" value="1-5" style="margin-right: 0.5rem;">
+                <label for="scripts-1-5">1-5</label>
+              </div>
+              <div class="radio-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <input type="radio" id="scripts-5-10" name="scripts_volume" value="5-10" style="margin-right: 0.5rem;">
+                <label for="scripts-5-10">5-10</label>
+              </div>
+              <div class="radio-item" style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <input type="radio" id="scripts-10-plus" name="scripts_volume" value="10+" style="margin-right: 0.5rem;">
+                <label for="scripts-10-plus">10+</label>
               </div>
             </div>
           </div>
@@ -454,22 +489,6 @@
           
           <button type="submit" class="cta-btn">Send Message</button>
         </form>
-      </div>
-      
-      <div class="content-card">
-        <div style="margin-bottom: 2rem;">
-          <h3 style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <div style="width: 40px; height: 40px; background-color: var(--primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 0.75rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </div>
-            Email Us
-          </h3>
-          <p><a href="mailto:contact@scenemind.ai" style="color: var(--primary); text-decoration: none;">contact@scenemind.ai</a></p>
-          <p>We respond to all inquiries within 24 hours during business days.</p>
-        </div>
       </div>
     </div>
   </div>
