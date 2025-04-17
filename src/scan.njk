@@ -30,9 +30,9 @@ title: Script Scanner
       <!-- Loom Video Thumbnail with Modal -->
       <div class="pricing-card rounded-lg p-6 flex flex-col">
         <h3 class="text-xl font-semibold text-white mb-2">Script Parser Demo</h3>
-        <p class="text-gray-400 mb-4 text-sm">See a 30-second walkthrough of our script parsing technology</p>
+        <p class="text-gray-400 mb-4 text-sm">See a walkthrough of our script parsing technology</p>
         <div class="mb-6 flex-grow relative cursor-pointer" onclick="openVideoModal()">
-          <img src="/img/loom-thumbnail.jpg" alt="Script Parser Video Demo" class="w-full rounded-lg shadow-md" />
+          <img src="https://img.youtube.com/vi/8fdebbbNIXo/maxresdefault.jpg" alt="Script Parser Video Demo" class="w-full rounded-lg shadow-md" />
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="bg-indigo-600 rounded-full h-16 w-16 flex items-center justify-center">
               <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -43,7 +43,7 @@ title: Script Scanner
           </div>
         </div>
         <div class="text-center">
-          <span class="text-gray-400 text-sm">Click to watch the demo (30 seconds)</span>
+          <span class="text-gray-400 text-sm">Click to watch the demo</span>
         </div>
       </div>
     </div>
@@ -104,9 +104,9 @@ title: Script Scanner
     </div>
 
     <!-- Video Modal -->
-    <div id="video-modal" class="fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-75 hidden">
+    <div id="video-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 hidden">
       <div class="max-w-4xl w-full mx-auto p-4">
-        <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
+        <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl">
           <div class="flex justify-between items-center p-4 border-b border-gray-700">
             <h3 class="text-xl font-semibold text-white">Script Parser Demo</h3>
             <button onclick="closeVideoModal()" class="text-gray-400 hover:text-white">
@@ -116,8 +116,8 @@ title: Script Scanner
             </button>
           </div>
           <div class="p-4">
-            <div class="aspect-w-16 aspect-h-9">
-              <iframe id="loom-iframe" src="" frameborder="0" allowfullscreen></iframe>
+            <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+              <iframe id="youtube-iframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -127,8 +127,8 @@ title: Script Scanner
     <script>
       function openVideoModal() {
         const modal = document.getElementById('video-modal');
-        const iframe = document.getElementById('loom-iframe');
-        iframe.src = "https://www.loom.com/embed/your-loom-id";
+        const iframe = document.getElementById('youtube-iframe');
+        iframe.src = "https://www.youtube.com/embed/8fdebbbNIXo?autoplay=1&rel=0&modestbranding=1&enablejsapi=1";
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         document.body.style.overflow = 'hidden';
@@ -136,7 +136,7 @@ title: Script Scanner
       
       function closeVideoModal() {
         const modal = document.getElementById('video-modal');
-        const iframe = document.getElementById('loom-iframe');
+        const iframe = document.getElementById('youtube-iframe');
         iframe.src = "";
         modal.classList.add('hidden');
         modal.classList.remove('flex');
@@ -364,7 +364,7 @@ title: Script Scanner
       <h3 class="text-2xl font-semibold text-white mb-6">Need More?</h3>
       <p class="text-gray-300 mb-6 max-w-2xl mx-auto text-lg">Enhance your parsing with add-ons or get custom quotes for extended length scripts and volume processing.</p>
       
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto justify-items-center">
         <!-- Translation Add-on -->
         <div class="bg-gray-800 border border-indigo-500/30 hover:border-indigo-500 rounded-xl p-5 shadow-lg hover:shadow-indigo-500/20 transition-all duration-300">
           <div class="bg-gradient-to-br from-indigo-600 to-blue-700 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
@@ -375,18 +375,6 @@ title: Script Scanner
           <h4 class="text-xl font-semibold text-white mb-2">Translation</h4>
           <p class="text-indigo-300 font-medium">+25%</p>
           <p class="text-gray-300 mt-2">Translation to English from any major language</p>
-        </div>
-        
-        <!-- Version Comparison Add-on -->
-        <div class="bg-gray-800 border border-indigo-500/30 hover:border-indigo-500 rounded-xl p-5 shadow-lg hover:shadow-indigo-500/20 transition-all duration-300">
-          <div class="bg-gradient-to-br from-indigo-600 to-blue-700 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-            </svg>
-          </div>
-          <h4 class="text-xl font-semibold text-white mb-2">Version Comparison</h4>
-          <p class="text-indigo-300 font-medium">€40</p>
-          <p class="text-gray-300 mt-2">Compare changes between script versions</p>
         </div>
         
         <!-- Rush Processing Add-on -->
@@ -466,7 +454,7 @@ title: Script Scanner
       <!-- Security FAQ -->
       <div class="pricing-card rounded-lg overflow-hidden">
         <button class="w-full text-left p-4 bg-gray-700 hover:bg-gray-600 flex justify-between items-center transition duration-300" onclick="toggleFAQ('security-faq')">
-          <h3 class="text-xl font-semibold text-white">How is my script data SECURE?</h3>
+          <h3 class="text-xl font-semibold text-white">Is my script data SECURE?</h3>
           <svg id="security-icon" class="h-6 w-6 text-white transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
