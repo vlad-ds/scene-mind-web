@@ -3,67 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service / Allgemeine Nutzungsbedingungen - Script Scanner Pro</title>
+  <title>Terms of Service / Allgemeine Nutzungsbedingungen - SceneMind.ai</title>
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/img/favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #334155;
-      --accent: #f97316;
-      --light: #f8fafc;
-      --dark: #0f172a;
-      --gray: #64748b;
-      --light-gray: #e2e8f0;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      color: var(--secondary);
-      background-color: var(--light);
-      padding-top: 60px; /* Added to account for fixed navbar */
+      font-family: 'Inter', sans-serif;
+      background-color: #111827; /* Dark Gray */
+      color: #F3F4F6; /* Light Gray */
+    }
+    /* Subtle gradient background for hero */
+    .hero-gradient {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #1f2937 100%);
+    }
+    /* Custom gradient for buttons */
+    .btn-gradient {
+      background: linear-gradient(to right, #3b82f6, #6366f1); /* Blue to Indigo */
+      transition: all 0.3s ease;
+    }
+    .btn-gradient:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    }
+    /* Styling for feature icons */
+    .feature-icon {
+      background: linear-gradient(to bottom right, #3b82f6, #6366f1);
+      padding: 0.75rem; /* p-3 */
+      border-radius: 0.5rem; /* rounded-lg */
+      display: inline-flex; /* To center icon inside */
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem; /* mb-4 */
+    }
+    /* Styling for pricing cards */
+    .pricing-card {
+      background-color: #1f2937; /* Gray 800 */
+      border: 1px solid #374151; /* Gray 700 */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    /* Section dividers */
+    .section-divider {
+      border-top: 1px solid #374151; /* Gray 700 */
+      margin-top: 4rem; /* mt-16 */
+      margin-bottom: 4rem; /* mb-16 */
+    }
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
     }
     
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
+    /* Previous styles for backward compatibility - can be removed later */
+    :root {
+      --primary: #3b82f6; /* Updated to blue */
+      --primary-dark: #2563eb; /* Updated to darker blue */
+      --secondary: #1f2937; /* Dark gray */
+      --accent: #6366f1; /* Indigo */
+      --light: #111827; /* Dark gray */
+      --dark: #0f172a; /* Very dark blue */
+      --gray: #64748b; /* Slate gray */
+      --light-gray: #e2e8f0; /* Light gray */
     }
-    
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary-dark);
-    }
-    
-    h2 {
-      font-size: 2rem;
-      margin: 2rem 0 1rem;
-      color: var(--primary-dark);
-    }
-    
-    h3 {
-      font-size: 1.5rem;
-      margin: 1.5rem 0 1rem;
-      color: var(--secondary);
-    }
-    
-    p {
-      margin-bottom: 1rem;
-    }
-    
     /* Navbar styles */
     .navbar {
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       position: fixed;
       top: 0;
@@ -84,7 +95,7 @@
     .navbar-brand {
       font-weight: bold;
       font-size: 1.25rem;
-      color: var(--primary-dark);
+      color: #F3F4F6; /* Light Gray */
       text-decoration: none;
     }
     
@@ -98,18 +109,18 @@
     }
     
     .navbar-menu a {
-      color: var(--secondary);
+      color: #F3F4F6; /* Light Gray */
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
     
     .navbar-menu a:hover {
-      color: var(--primary);
+      color: #3b82f6; /* Blue */
     }
     
     .navbar-menu a.active {
-      color: var(--primary);
+      color: #3b82f6; /* Blue */
       position: relative;
     }
     
@@ -120,7 +131,7 @@
       right: 0;
       bottom: -5px;
       height: 2px;
-      background-color: var(--primary);
+      background-color: #3b82f6; /* Blue */
     }
     
     .navbar-toggle {
@@ -129,12 +140,12 @@
       border: none;
       cursor: pointer;
       font-size: 1.5rem;
-      color: var(--secondary);
+      color: #F3F4F6; /* Light Gray */
     }
     
     .page-header {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: white;
+      background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #1f2937 100%);
+      color: #F3F4F6; /* Light Gray */
       padding: 1.5rem 0;
       text-align: center;
     }
@@ -146,7 +157,7 @@
     }
     
     .page-header h1 {
-      color: white;
+      color: #F3F4F6; /* Light Gray */
       margin-bottom: 1rem;
     }
     
@@ -161,7 +172,7 @@
     
     .content-section {
       padding: 4rem 0;
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
     }
     
     .content-grid {
@@ -174,14 +185,14 @@
     .content-card {
       flex: 1;
       min-width: 300px;
-      background-color: var(--light);
+      background-color: #111827; /* Dark Gray */
       border-radius: 8px;
       padding: 2rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
     
     .highlight-box {
-      background-color: var(--light);
+      background-color: #111827; /* Dark Gray */
       border-radius: 8px;
       padding: 2rem;
       margin: 2rem 0;
@@ -198,13 +209,13 @@
     .comparison-column {
       width: 100%;
       padding: 2rem;
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
     
     .comparison-column h3 {
-      color: var(--dark);
+      color: #F3F4F6; /* Light Gray */
       margin-top: 0;
       margin-bottom: 0.75rem;
     }
@@ -228,7 +239,7 @@
       content: "→";
       position: absolute;
       left: 0;
-      color: var(--accent);
+      color: #6366f1; /* Indigo */
       font-weight: bold;
     }
     
@@ -240,7 +251,7 @@
     }
     
     .metric-item {
-      background-color: var(--light);
+      background-color: #111827; /* Dark Gray */
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -255,8 +266,8 @@
     
     .cta-btn {
       display: inline-block;
-      background-color: var(--accent);
-      color: white;
+      background-color: #6366f1; /* Indigo */
+      color: #F3F4F6; /* Light Gray */
       padding: 0.75rem 2rem;
       border-radius: 4px;
       text-decoration: none;
@@ -266,7 +277,7 @@
     }
     
     .cta-btn:hover {
-      background-color: #e86207;
+      background-color: #7c3aed;
     }
     
     @media (min-width: 768px) {
@@ -294,7 +305,7 @@
         left: 0;
         right: 0;
         flex-direction: column;
-        background-color: white;
+        background-color: #1f2937; /* Gray 800 */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 1rem 0;
         display: none;
@@ -325,7 +336,7 @@
     }
     
     .feature-card {
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
       padding: 1.5rem;
@@ -341,7 +352,7 @@
     .feature-icon {
       font-size: 2rem;
       margin-right: 1rem;
-      color: var(--primary);
+      color: #3b82f6; /* Blue */
       align-self: flex-start;
     }
     
@@ -350,7 +361,7 @@
     }
     
     .feature-content h4 {
-      color: var(--primary-dark);
+      color: #3b82f6; /* Blue */
       margin: 0 0 0.75rem 0;
       font-size: 1.1rem;
     }
@@ -361,132 +372,229 @@
     }
   </style>
 </head>
-<body>
+<body class="antialiased">
   <!-- Navigation Bar -->
-<nav class="navbar">
-  <div class="container">
-    <a href="/" class="navbar-brand">SceneMind.ai</a>
-    <button class="navbar-toggle" id="navbar-toggle">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
+<nav class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 py-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+    <div class="flex items-center">
+      <svg class="h-8 w-auto text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
-    </button>
-    <ul class="navbar-menu" id="navbar-menu">
-      <li><a href="/" >Home</a></li>
-      <li><a href="/scan/" >Script Scanner</a></li>
-      <li><a href="/dylan/" >Dylan AI</a></li>
-      <li><a href="/about/" >About</a></li>
-      <li><a href="/contact/" >Contact</a></li>
-    </ul>
-  </div>
-</nav> 
-
-  
-<div class="container mx-auto px-4 py-8">
-  <h1 class="text-3xl font-bold mb-6">Terms of Service / Allgemeine Nutzungsbedingungen</h1>
-
-  <section class="mb-8">
-    <h2 class="text-2xl font-semibold mb-4">English</h2>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">1. Scope</h3>
-    <p class="mb-4">These terms govern the use of the SceneMind.ai website ("Website"). By accessing or using the Website, you agree to these basic terms. This Website provides information about our potential services and allows you to contact us for inquiries.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">2. Services Offered</h3>
-    <p class="mb-4">The Website describes potential AI-powered services for the film and television industry. The descriptions are for informational purposes only. Actual services, scope, and fees will be defined in separate agreements if you choose to engage our services after contacting us.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">3. Use of Contact Form</h3>
-    <p class="mb-4">If you use the contact form, you agree to provide accurate information. We will use this information solely to respond to your inquiry, as detailed in our <a href="/privacy-policy/" class="text-primary hover:underline">Privacy Policy</a>.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">4. No Guarantees or Warranties</h3>
-    <p class="mb-4">The information and described potential services on this Website are provided "as is" without any warranties, express or implied. We do not guarantee the accuracy, completeness, or suitability of the information or the potential outcomes of any described AI services.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">5. Limitation of Liability</h3>
-    <p class="mb-4">To the maximum extent permitted by law, we shall not be liable for any direct, indirect, incidental, or consequential damages arising out of your use or inability to use the Website or its information.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">6. Intellectual Property</h3>
-    <p class="mb-4">The content on this Website (text, graphics, logos) is our property or licensed to us and is protected by copyright laws. You may not reproduce, distribute, or modify any content without our prior written permission. Any materials you submit via the contact form remain your property, subject to the terms of any future service agreement.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">7. Governing Law</h3>
-    <p class="mb-4">These terms shall be governed by and construed in accordance with the laws of Germany, excluding its conflict of law provisions.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">8. Changes to Terms</h3>
-    <p class="mb-4">We reserve the right to modify these basic terms at any time. Continued use of the Website after changes constitutes acceptance of the new terms.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">9. Contact</h3>
-    <p>For questions regarding these terms, please refer to our <a href="/impressum/" class="text-primary hover:underline">Legal Notice (Impressum)</a>.</p>
-  </section>
-
-  <hr class="my-8 border-gray-300">
-
-  <section>
-    <h2 class="text-2xl font-semibold mb-4">Deutsch</h2>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">1. Geltungsbereich</h3>
-    <p class="mb-4">Diese Bedingungen regeln die Nutzung der SceneMind.ai-Website ("Website"). Durch den Zugriff auf die Website oder deren Nutzung stimmen Sie diesen grundlegenden Bedingungen zu. Diese Website bietet Informationen über unsere potenziellen Dienstleistungen und ermöglicht es Ihnen, uns für Anfragen zu kontaktieren.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">2. Angebotene Dienstleistungen</h3>
-    <p class="mb-4">Die Website beschreibt potenzielle KI-gestützte Dienstleistungen für die Film- und Fernsehindustrie. Die Beschreibungen dienen nur zu Informationszwecken. Tatsächliche Dienstleistungen, Umfang und Gebühren werden in separaten Vereinbarungen festgelegt, falls Sie sich entscheiden, unsere Dienste nach Kontaktaufnahme in Anspruch zu nehmen.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">3. Nutzung des Kontaktformulars</h3>
-    <p class="mb-4">Wenn Sie das Kontaktformular nutzen, erklären Sie sich damit einverstanden, korrekte Angaben zu machen. Wir verwenden diese Informationen ausschließlich zur Beantwortung Ihrer Anfrage, wie in unserer <a href="/privacy-policy/" class="text-primary hover:underline">Datenschutzerklärung</a> beschrieben.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">4. Keine Garantien oder Gewährleistungen</h3>
-    <p class="mb-4">Die Informationen und beschriebenen potenziellen Dienstleistungen auf dieser Website werden "wie besehen" ohne ausdrückliche oder stillschweigende Gewährleistungen bereitgestellt. Wir garantieren nicht die Richtigkeit, Vollständigkeit oder Eignung der Informationen oder die potenziellen Ergebnisse der beschriebenen KI-Dienste.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">5. Haftungsbeschränkung</h3>
-    <p class="mb-4">Soweit gesetzlich zulässig, haften wir nicht für direkte, indirekte, zufällige oder Folgeschäden, die sich aus Ihrer Nutzung oder Unmöglichkeit der Nutzung der Website oder ihrer Informationen ergeben.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">6. Geistiges Eigentum</h3>
-    <p class="mb-4">Der Inhalt dieser Website (Texte, Grafiken, Logos) ist unser Eigentum oder an uns lizenziert und durch Urheberrechtsgesetze geschützt. Sie dürfen ohne unsere vorherige schriftliche Genehmigung keine Inhalte vervielfältigen, verbreiten oder ändern. Alle Materialien, die Sie über das Kontaktformular einreichen, bleiben Ihr Eigentum, vorbehaltlich der Bedingungen eines zukünftigen Dienstleistungsvertrags.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">7. Anwendbares Recht</h3>
-    <p class="mb-4">Diese Bedingungen unterliegen deutschem Recht unter Ausschluss seiner Kollisionsnormen und sind entsprechend auszulegen.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">8. Änderungen der Bedingungen</h3>
-    <p class="mb-4">Wir behalten uns das Recht vor, diese grundlegenden Bedingungen jederzeit zu ändern. Die fortgesetzte Nutzung der Website nach Änderungen gilt als Annahme der neuen Bedingungen.</p>
-
-    <h3 class="text-xl font-semibold mt-4 mb-2">9. Kontakt</h3>
-    <p>Bei Fragen zu diesen Bedingungen verweisen wir auf unser <a href="/impressum/" class="text-primary hover:underline">Impressum</a>.</p>
-  </section>
-</div> 
-
-  <!-- Footer Section -->
-<footer style="background-color: var(--dark); color: white; padding: 3rem 0;">
-  <div class="container">
-    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-      <div style="flex: 2; min-width: 300px;">
-        <h3 style="color: white; margin-top: 0;">SceneMind.ai</h3>
-        <p>AI-powered solutions for the film and television industry.</p>
+      <a href="/" class="ml-3 text-xl font-bold text-white">SceneMind.ai</a>
+    </div>
+    <div class="hidden md:flex space-x-4">
+      <a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">Home</a>
+      
+      <!-- Products Dropdown -->
+      <div class="relative inline-block text-left" x-data="{ open: false }">
+        <button @click="open = !open" @click.away="open = false" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium flex items-center ">
+          Products
+          <svg class="ml-1 -mr-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div x-show="open" 
+             x-transition:enter="transition ease-out duration-100" 
+             x-transition:enter-start="transform opacity-0 scale-95" 
+             x-transition:enter-end="transform opacity-100 scale-100" 
+             x-transition:leave="transition ease-in duration-75" 
+             x-transition:leave-start="transform opacity-100 scale-100" 
+             x-transition:leave-end="transform opacity-0 scale-95" 
+             class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none" 
+             style="display: none;">
+          <div class="py-1">
+            <a href="/scan/" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-4 py-2 text-sm ">Script Scanner</a>
+            <a href="/dylan/" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-4 py-2 text-sm ">Dylan AI</a>
+          </div>
+        </div>
       </div>
       
-      <div style="flex: 1; min-width: 200px;">
-        <h4 style="color: white; margin-top: 0; margin-bottom: 1rem;">Products</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="/scan/" style="color: var(--light-gray); text-decoration: none;">Script Scanner</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/dylan/" style="color: var(--light-gray); text-decoration: none;">Dylan AI</a></li>
+      <a href="/security/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">Data Security</a>
+      <a href="/about/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">About</a>
+      <a href="/contact/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">Contact</a>
+    </div>
+    <div class="md:hidden">
+      <button class="text-gray-400 hover:text-white focus:outline-none focus:text-white" id="navbar-toggle">
+        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile menu, show/hide based on menu state -->
+  <div class="hidden md:hidden" id="navbar-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a href="/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">Home</a>
+      
+      <!-- Mobile Products Dropdown Header -->
+      <div class="text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Products:</div>
+      
+      <!-- Mobile Products Menu Items (Indented) -->
+      <a href="/scan/" class="text-gray-300 hover:text-white block px-6 py-2 rounded-md text-base font-medium ">- Script Scanner</a>
+      <a href="/dylan/" class="text-gray-300 hover:text-white block px-6 py-2 rounded-md text-base font-medium ">- Dylan AI</a>
+      
+      <a href="/security/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">Data Security</a>
+      <a href="/about/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">About</a>
+      <a href="/contact/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">Contact</a>
+    </div>
+  </div>
+</nav>
+
+  
+<!-- Page Header -->
+<header class="hero-gradient py-16 md:py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">Terms of Service / Allgemeine Nutzungsbedingungen</h1>
+  </div>
+</header>
+
+<section class="py-16 md:py-24 bg-gray-900">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="pricing-card rounded-lg p-8 mb-10">
+      <h2 class="text-2xl font-semibold text-white mb-6 flex items-center">
+        <span class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center mr-3 text-sm">EN</span>
+        English
+      </h2>
+      
+      <div class="text-gray-300 space-y-6">
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">1. Scope</h3>
+          <p>These terms govern the use of the SceneMind.ai website ("Website"). By accessing or using the Website, you agree to these basic terms. This Website provides information about our potential services and allows you to contact us for inquiries.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">2. Services Offered</h3>
+          <p>The Website describes potential AI-powered services for the film and television industry. The descriptions are for informational purposes only. Actual services, scope, and fees will be defined in separate agreements if you choose to engage our services after contacting us.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">3. Use of Contact Form</h3>
+          <p>If you use the contact form, you agree to provide accurate information. We will use this information solely to respond to your inquiry, as detailed in our <a href="/privacy-policy/" class="text-indigo-400 hover:text-indigo-300">Privacy Policy</a>.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">4. No Guarantees or Warranties</h3>
+          <p>The information and described potential services on this Website are provided "as is" without any warranties, express or implied. We do not guarantee the accuracy, completeness, or suitability of the information or the potential outcomes of any described AI services.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">5. Limitation of Liability</h3>
+          <p>To the maximum extent permitted by law, we shall not be liable for any direct, indirect, incidental, or consequential damages arising out of your use or inability to use the Website or its information.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">6. Intellectual Property</h3>
+          <p>The content on this Website (text, graphics, logos) is our property or licensed to us and is protected by copyright laws. You may not reproduce, distribute, or modify any content without our prior written permission. Any materials you submit via the contact form remain your property, subject to the terms of any future service agreement.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">7. Governing Law</h3>
+          <p>These terms shall be governed by and construed in accordance with the laws of Germany, excluding its conflict of law provisions.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">8. Changes to Terms</h3>
+          <p>We reserve the right to modify these basic terms at any time. Continued use of the Website after changes constitutes acceptance of the new terms.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">9. Contact</h3>
+          <p>For questions regarding these terms, please refer to our <a href="/impressum/" class="text-indigo-400 hover:text-indigo-300">Legal Notice (Impressum)</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-card rounded-lg p-8">
+      <h2 class="text-2xl font-semibold text-white mb-6 flex items-center">
+        <span class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center mr-3 text-sm">DE</span>
+        Deutsch
+      </h2>
+      
+      <div class="text-gray-300 space-y-6">
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">1. Geltungsbereich</h3>
+          <p>Diese Bedingungen regeln die Nutzung der SceneMind.ai-Website ("Website"). Durch den Zugriff auf die Website oder deren Nutzung stimmen Sie diesen grundlegenden Bedingungen zu. Diese Website bietet Informationen über unsere potenziellen Dienstleistungen und ermöglicht es Ihnen, uns für Anfragen zu kontaktieren.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">2. Angebotene Dienstleistungen</h3>
+          <p>Die Website beschreibt potenzielle KI-gestützte Dienstleistungen für die Film- und Fernsehindustrie. Die Beschreibungen dienen nur zu Informationszwecken. Tatsächliche Dienstleistungen, Umfang und Gebühren werden in separaten Vereinbarungen festgelegt, falls Sie sich entscheiden, unsere Dienste nach Kontaktaufnahme in Anspruch zu nehmen.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">3. Nutzung des Kontaktformulars</h3>
+          <p>Wenn Sie das Kontaktformular nutzen, erklären Sie sich damit einverstanden, korrekte Angaben zu machen. Wir verwenden diese Informationen ausschließlich zur Beantwortung Ihrer Anfrage, wie in unserer <a href="/privacy-policy/" class="text-indigo-400 hover:text-indigo-300">Datenschutzerklärung</a> beschrieben.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">4. Keine Garantien oder Gewährleistungen</h3>
+          <p>Die Informationen und beschriebenen potenziellen Dienstleistungen auf dieser Website werden "wie besehen" ohne ausdrückliche oder stillschweigende Gewährleistungen bereitgestellt. Wir garantieren nicht die Richtigkeit, Vollständigkeit oder Eignung der Informationen oder die potenziellen Ergebnisse der beschriebenen KI-Dienste.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">5. Haftungsbeschränkung</h3>
+          <p>Soweit gesetzlich zulässig, haften wir nicht für direkte, indirekte, zufällige oder Folgeschäden, die sich aus Ihrer Nutzung oder Unmöglichkeit der Nutzung der Website oder ihrer Informationen ergeben.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">6. Geistiges Eigentum</h3>
+          <p>Der Inhalt dieser Website (Texte, Grafiken, Logos) ist unser Eigentum oder an uns lizenziert und durch Urheberrechtsgesetze geschützt. Sie dürfen ohne unsere vorherige schriftliche Genehmigung keine Inhalte vervielfältigen, verbreiten oder ändern. Alle Materialien, die Sie über das Kontaktformular einreichen, bleiben Ihr Eigentum, vorbehaltlich der Bedingungen eines zukünftigen Dienstleistungsvertrags.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">7. Anwendbares Recht</h3>
+          <p>Diese Bedingungen unterliegen deutschem Recht unter Ausschluss seiner Kollisionsnormen und sind entsprechend auszulegen.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">8. Änderungen der Bedingungen</h3>
+          <p>Wir behalten uns das Recht vor, diese grundlegenden Bedingungen jederzeit zu ändern. Die fortgesetzte Nutzung der Website nach Änderungen gilt als Annahme der neuen Bedingungen.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">9. Kontakt</h3>
+          <p>Bei Fragen zu diesen Bedingungen verweisen wir auf unser <a href="/impressum/" class="text-indigo-400 hover:text-indigo-300">Impressum</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  <!-- Footer Section -->
+<footer class="bg-gray-900 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 class="text-xl font-semibold text-white mb-3">SceneMind.ai</h3>
+        <p class="text-gray-400">AI-powered solutions for the film and television industry.</p>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-3">Products</h4>
+        <ul class="text-gray-400 space-y-2">
+          <li><a href="/scan/" class="hover:text-white transition-colors">Script Scanner</a></li>
+          <li><a href="/dylan/" class="hover:text-white transition-colors">Dylan AI</a></li>
         </ul>
       </div>
       
-      <div style="flex: 1; min-width: 200px;">
-        <h4 style="color: white; margin-top: 0; margin-bottom: 1rem;">Company</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="/about/" style="color: var(--light-gray); text-decoration: none;">About</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/contact/" style="color: var(--light-gray); text-decoration: none;">Contact</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/impressum/" style="color: var(--light-gray); text-decoration: none;">Impressum</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/privacy-policy/" style="color: var(--light-gray); text-decoration: none;">Privacy Policy</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/security/" style="color: var(--light-gray); text-decoration: none;">Data Security</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/terms/" style="color: var(--light-gray); text-decoration: none;">Terms of Service</a></li>
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-3">Company</h4>
+        <ul class="text-gray-400 space-y-2">
+          <li><a href="/about/" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/contact/" class="hover:text-white transition-colors">Contact</a></li>
+          <li><a href="/impressum/" class="hover:text-white transition-colors">Impressum</a></li>
+          <li><a href="/privacy-policy/" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/security/" class="hover:text-white transition-colors">Data Security</a></li>
+          <li><a href="/terms/" class="hover:text-white transition-colors">Terms of Service</a></li>
         </ul>
       </div>
     </div>
     
-    <div style="margin-top: 3rem; text-align: center; color: var(--gray);">
+    <div class="text-center text-gray-400 text-sm border-t border-gray-800 pt-6">
       <p>&copy; 2025 SceneMind. All rights reserved.</p>
     </div>
   </div>
-</footer> 
+</footer>
 
   <script>
     // Mobile menu toggle
@@ -513,4 +621,4 @@
     });
   </script>
 </body>
-</html> 
+</html>

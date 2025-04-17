@@ -3,67 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Security &amp; Confidentiality - Script Scanner Pro</title>
+  <title>Data Security &amp; Confidentiality - SceneMind.ai</title>
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/img/favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #334155;
-      --accent: #f97316;
-      --light: #f8fafc;
-      --dark: #0f172a;
-      --gray: #64748b;
-      --light-gray: #e2e8f0;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      color: var(--secondary);
-      background-color: var(--light);
-      padding-top: 60px; /* Added to account for fixed navbar */
+      font-family: 'Inter', sans-serif;
+      background-color: #111827; /* Dark Gray */
+      color: #F3F4F6; /* Light Gray */
+    }
+    /* Subtle gradient background for hero */
+    .hero-gradient {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #1f2937 100%);
+    }
+    /* Custom gradient for buttons */
+    .btn-gradient {
+      background: linear-gradient(to right, #3b82f6, #6366f1); /* Blue to Indigo */
+      transition: all 0.3s ease;
+    }
+    .btn-gradient:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    }
+    /* Styling for feature icons */
+    .feature-icon {
+      background: linear-gradient(to bottom right, #3b82f6, #6366f1);
+      padding: 0.75rem; /* p-3 */
+      border-radius: 0.5rem; /* rounded-lg */
+      display: inline-flex; /* To center icon inside */
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem; /* mb-4 */
+    }
+    /* Styling for pricing cards */
+    .pricing-card {
+      background-color: #1f2937; /* Gray 800 */
+      border: 1px solid #374151; /* Gray 700 */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    /* Section dividers */
+    .section-divider {
+      border-top: 1px solid #374151; /* Gray 700 */
+      margin-top: 4rem; /* mt-16 */
+      margin-bottom: 4rem; /* mb-16 */
+    }
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
     }
     
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
+    /* Previous styles for backward compatibility - can be removed later */
+    :root {
+      --primary: #3b82f6; /* Updated to blue */
+      --primary-dark: #2563eb; /* Updated to darker blue */
+      --secondary: #1f2937; /* Dark gray */
+      --accent: #6366f1; /* Indigo */
+      --light: #111827; /* Dark gray */
+      --dark: #0f172a; /* Very dark blue */
+      --gray: #64748b; /* Slate gray */
+      --light-gray: #e2e8f0; /* Light gray */
     }
-    
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary-dark);
-    }
-    
-    h2 {
-      font-size: 2rem;
-      margin: 2rem 0 1rem;
-      color: var(--primary-dark);
-    }
-    
-    h3 {
-      font-size: 1.5rem;
-      margin: 1.5rem 0 1rem;
-      color: var(--secondary);
-    }
-    
-    p {
-      margin-bottom: 1rem;
-    }
-    
     /* Navbar styles */
     .navbar {
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       position: fixed;
       top: 0;
@@ -84,7 +95,7 @@
     .navbar-brand {
       font-weight: bold;
       font-size: 1.25rem;
-      color: var(--primary-dark);
+      color: #F3F4F6; /* Light Gray */
       text-decoration: none;
     }
     
@@ -98,18 +109,18 @@
     }
     
     .navbar-menu a {
-      color: var(--secondary);
+      color: #F3F4F6; /* Light Gray */
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
     
     .navbar-menu a:hover {
-      color: var(--primary);
+      color: #3b82f6; /* Blue */
     }
     
     .navbar-menu a.active {
-      color: var(--primary);
+      color: #3b82f6; /* Blue */
       position: relative;
     }
     
@@ -120,7 +131,7 @@
       right: 0;
       bottom: -5px;
       height: 2px;
-      background-color: var(--primary);
+      background-color: #3b82f6; /* Blue */
     }
     
     .navbar-toggle {
@@ -129,12 +140,12 @@
       border: none;
       cursor: pointer;
       font-size: 1.5rem;
-      color: var(--secondary);
+      color: #F3F4F6; /* Light Gray */
     }
     
     .page-header {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: white;
+      background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #1f2937 100%);
+      color: #F3F4F6; /* Light Gray */
       padding: 1.5rem 0;
       text-align: center;
     }
@@ -146,7 +157,7 @@
     }
     
     .page-header h1 {
-      color: white;
+      color: #F3F4F6; /* Light Gray */
       margin-bottom: 1rem;
     }
     
@@ -161,7 +172,7 @@
     
     .content-section {
       padding: 4rem 0;
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
     }
     
     .content-grid {
@@ -174,14 +185,14 @@
     .content-card {
       flex: 1;
       min-width: 300px;
-      background-color: var(--light);
+      background-color: #111827; /* Dark Gray */
       border-radius: 8px;
       padding: 2rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
     
     .highlight-box {
-      background-color: var(--light);
+      background-color: #111827; /* Dark Gray */
       border-radius: 8px;
       padding: 2rem;
       margin: 2rem 0;
@@ -198,13 +209,13 @@
     .comparison-column {
       width: 100%;
       padding: 2rem;
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
     
     .comparison-column h3 {
-      color: var(--dark);
+      color: #F3F4F6; /* Light Gray */
       margin-top: 0;
       margin-bottom: 0.75rem;
     }
@@ -228,7 +239,7 @@
       content: "→";
       position: absolute;
       left: 0;
-      color: var(--accent);
+      color: #6366f1; /* Indigo */
       font-weight: bold;
     }
     
@@ -240,7 +251,7 @@
     }
     
     .metric-item {
-      background-color: var(--light);
+      background-color: #111827; /* Dark Gray */
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -255,8 +266,8 @@
     
     .cta-btn {
       display: inline-block;
-      background-color: var(--accent);
-      color: white;
+      background-color: #6366f1; /* Indigo */
+      color: #F3F4F6; /* Light Gray */
       padding: 0.75rem 2rem;
       border-radius: 4px;
       text-decoration: none;
@@ -266,7 +277,7 @@
     }
     
     .cta-btn:hover {
-      background-color: #e86207;
+      background-color: #7c3aed;
     }
     
     @media (min-width: 768px) {
@@ -294,7 +305,7 @@
         left: 0;
         right: 0;
         flex-direction: column;
-        background-color: white;
+        background-color: #1f2937; /* Gray 800 */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 1rem 0;
         display: none;
@@ -325,7 +336,7 @@
     }
     
     .feature-card {
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
       padding: 1.5rem;
@@ -341,7 +352,7 @@
     .feature-icon {
       font-size: 2rem;
       margin-right: 1rem;
-      color: var(--primary);
+      color: #3b82f6; /* Blue */
       align-self: flex-start;
     }
     
@@ -350,7 +361,7 @@
     }
     
     .feature-content h4 {
-      color: var(--primary-dark);
+      color: #3b82f6; /* Blue */
       margin: 0 0 0.75rem 0;
       font-size: 1.1rem;
     }
@@ -361,114 +372,311 @@
     }
   </style>
 </head>
-<body>
+<body class="antialiased">
   <!-- Navigation Bar -->
-<nav class="navbar">
-  <div class="container">
-    <a href="/" class="navbar-brand">SceneMind.ai</a>
-    <button class="navbar-toggle" id="navbar-toggle">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
+<nav class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 py-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+    <div class="flex items-center">
+      <svg class="h-8 w-auto text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
-    </button>
-    <ul class="navbar-menu" id="navbar-menu">
-      <li><a href="/" >Home</a></li>
-      <li><a href="/scan/" >Script Scanner</a></li>
-      <li><a href="/dylan/" >Dylan AI</a></li>
-      <li><a href="/about/" >About</a></li>
-      <li><a href="/contact/" >Contact</a></li>
-    </ul>
+      <a href="/" class="ml-3 text-xl font-bold text-white">SceneMind.ai</a>
+    </div>
+    <div class="hidden md:flex space-x-4">
+      <a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">Home</a>
+      
+      <!-- Products Dropdown -->
+      <div class="relative inline-block text-left" x-data="{ open: false }">
+        <button @click="open = !open" @click.away="open = false" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium flex items-center ">
+          Products
+          <svg class="ml-1 -mr-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div x-show="open" 
+             x-transition:enter="transition ease-out duration-100" 
+             x-transition:enter-start="transform opacity-0 scale-95" 
+             x-transition:enter-end="transform opacity-100 scale-100" 
+             x-transition:leave="transition ease-in duration-75" 
+             x-transition:leave-start="transform opacity-100 scale-100" 
+             x-transition:leave-end="transform opacity-0 scale-95" 
+             class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none" 
+             style="display: none;">
+          <div class="py-1">
+            <a href="/scan/" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-4 py-2 text-sm ">Script Scanner</a>
+            <a href="/dylan/" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-4 py-2 text-sm ">Dylan AI</a>
+          </div>
+        </div>
+      </div>
+      
+      <a href="/security/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium text-white">Data Security</a>
+      <a href="/about/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">About</a>
+      <a href="/contact/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">Contact</a>
+    </div>
+    <div class="md:hidden">
+      <button class="text-gray-400 hover:text-white focus:outline-none focus:text-white" id="navbar-toggle">
+        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
   </div>
-</nav> 
+  <!-- Mobile menu, show/hide based on menu state -->
+  <div class="hidden md:hidden" id="navbar-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a href="/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">Home</a>
+      
+      <!-- Mobile Products Dropdown Header -->
+      <div class="text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Products:</div>
+      
+      <!-- Mobile Products Menu Items (Indented) -->
+      <a href="/scan/" class="text-gray-300 hover:text-white block px-6 py-2 rounded-md text-base font-medium ">- Script Scanner</a>
+      <a href="/dylan/" class="text-gray-300 hover:text-white block px-6 py-2 rounded-md text-base font-medium ">- Dylan AI</a>
+      
+      <a href="/security/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-800">Data Security</a>
+      <a href="/about/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">About</a>
+      <a href="/contact/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">Contact</a>
+    </div>
+  </div>
+</nav>
 
   
-<div class="container">
-  <h1>Data Security & Confidentiality</h1>
+<!-- Hero Section with Gradient Background -->
+<section class="hero-gradient py-20 md:py-32">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+      Data Security & <span class="text-indigo-400">Confidentiality</span>
+    </h1>
+    <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
+      Your intellectual property is our top priority. Learn how we protect your valuable script data.
+    </p>
+  </div>
+</section>
 
-  <section style="margin-bottom: 2rem;">
-    <h2>Your Intellectual Property is Safe With Us</h2>
-    
-    <p>We understand that your movie and TV scripts are highly confidential and represent valuable intellectual property. Protecting this data is a top priority in all our services, from the moment you share it with us, through processing, and during storage. We are committed to transparency and robust security practices.</p>
-    
-    <div style="background-color: #dbeafe; border-left: 4px solid var(--primary); padding: 1rem; margin: 1.5rem 0;">
-      <p style="font-weight: bold; color: #1e40af; margin-bottom: 0;">Key Commitment: Your script data submitted through our services is never used to train the underlying AI models of our providers.</p>
+<!-- Main Content Section -->
+<section class="py-16 md:py-24 bg-gray-900">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="pricing-card rounded-lg p-8 shadow-lg border border-gray-700 hover:border-indigo-500 transition-all duration-300 relative overflow-hidden">
+      <!-- Background decorative elements -->
+      <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div class="absolute -top-24 -left-24 w-48 h-48 bg-indigo-600/20 rounded-full"></div>
+        <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-purple-600/20 rounded-full"></div>
+      </div>
+      
+      <div class="relative z-10">
+        <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+          <svg class="w-8 h-8 mr-3 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+          Your Intellectual Property is Safe With Us
+        </h2>
+        
+        <div class="text-gray-300 space-y-6">
+          <p class="text-lg">We understand that your movie and TV scripts are highly confidential and represent valuable intellectual property. Protecting this data is a top priority in all our services, from the moment you share it with us, through processing, and during storage. We are committed to transparency and robust security practices.</p>
+          
+          <div class="bg-indigo-900/40 border-l-4 border-indigo-500 p-4 rounded-r shadow-md mb-8">
+            <p class="font-semibold text-indigo-300 text-lg">Key Commitment: Your script data submitted through our services is never used to train the underlying AI models of our providers.</p>
+          </div>
+          
+          <div class="mb-10">
+            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+              <svg class="w-6 h-6 mr-2 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+              How We Handle Your Data
+            </h3>
+            <p class="mb-4">When you use our services, whether providing scripts for analysis or using our platform features, here's how we ensure security and confidentiality at every stage:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <!-- Secure File Reception Card -->
+              <div class="bg-gray-800/70 rounded-lg p-5 border border-gray-700 hover:border-indigo-500 transition-all duration-300">
+                <h4 class="font-medium text-white text-xl mb-2 flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                  </svg>
+                  Secure File Reception
+                </h4>
+                <p>When you need to send us scripts, we utilize secure file transfer methods (like dedicated secure upload links) designed to protect your data in transit, ensuring only authorized personnel receive it.</p>
+              </div>
+              
+              <!-- Access Control Card -->
+              <div class="bg-gray-800/70 rounded-lg p-5 border border-gray-700 hover:border-indigo-500 transition-all duration-300">
+                <h4 class="font-medium text-white text-xl mb-2 flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+                  </svg>
+                  Access Control
+                </h4>
+                <p>Strict access controls, both locally and on cloud storage, ensure only necessary personnel can access your data solely for the purpose of providing the requested service or for secure archival.</p>
+              </div>
+            </div>
+            
+            <div class="bg-gray-800/70 rounded-lg p-5 border border-gray-700 hover:border-indigo-500 transition-all duration-300 mb-6">
+              <h4 class="font-medium text-white text-xl mb-3 flex items-center">
+                <svg class="w-5 h-5 mr-2 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path>
+                </svg>
+                Secure Processing & Storage
+              </h4>
+              <p class="mb-3">Your data resides and is processed in one of two secure environments, under our direct control:</p>
+              <ul class="list-none space-y-3 mb-0">
+                <li class="pl-4 border-l-2 border-indigo-500">
+                  <span class="font-medium text-white">Local Encrypted Storage:</span> 
+                  <p class="text-gray-300">Scripts and related data may be processed and stored locally utilizing built-in full-disk encryption. Access is strictly controlled.</p>
+                </li>
+                <li class="pl-4 border-l-2 border-indigo-500">
+                  <span class="font-medium text-white">Google Cloud Platform:</span>
+                  <p class="text-gray-300">Alternatively, processing and storage may occur within our secure Google Cloud Platform environment. We implement and manage robust security configurations within Google Cloud to protect your data, leveraging its security features while ensuring appropriate access controls and data handling protocols are followed.</p>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Secure Transmission Card -->
+              <div class="bg-gray-800/70 rounded-lg p-5 border border-gray-700 hover:border-indigo-500 transition-all duration-300">
+                <h4 class="font-medium text-white text-xl mb-2 flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                  </svg>
+                  Secure Transmission
+                </h4>
+                <p>Data transmitted between your system, our service, the AI APIs, and secure cloud storage uses encrypted connections (HTTPS/TLS).</p>
+              </div>
+              
+              <!-- Data Minimization Card -->
+              <div class="bg-gray-800/70 rounded-lg p-5 border border-gray-700 hover:border-indigo-500 transition-all duration-300">
+                <h4 class="font-medium text-white text-xl mb-2 flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                  </svg>
+                  Data Minimization & Retention
+                </h4>
+                <p>We only process and store the data necessary for the service. We retain your data only as long as needed and as agreed upon, after which it is securely deleted upon request or after a defined period.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mb-10">
+            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+              <svg class="w-6 h-6 mr-2 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              AI API Provider Policies
+            </h3>
+            <p class="mb-6">We leverage leading AI API platforms designed for business use. Their policies regarding data usage during processing are crucial to our commitment:</p>
+
+            <div class="space-y-6">
+              <!-- OpenAI Card -->
+              <div class="bg-gray-800/70 rounded-lg p-6 border border-gray-700 hover:border-indigo-500 transition-all duration-300">
+                <h4 class="font-medium text-white text-xl mb-3">OpenAI API</h4>
+                <p class="mb-4">We use OpenAI's API platform for business services. Based on OpenAI's official documentation, your data processed through the OpenAI API will not be used to train OpenAI's models unless we explicitly choose to opt-in to data sharing with OpenAI. By default, data sharing for model training is disabled for API users.</p>
+                <div class="flex space-x-4 text-sm">
+                  <a href="https://openai.com/policies/privacy-policy" class="text-indigo-400 hover:text-indigo-300 flex items-center transition duration-300">
+                    <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                    OpenAI Privacy Policy
+                  </a>
+                  <a href="https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance" class="text-indigo-400 hover:text-indigo-300 flex items-center transition duration-300">
+                    <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    OpenAI FAQ
+                  </a>
+                </div>
+              </div>
+
+              <!-- Anthropic Card -->
+              <div class="bg-gray-800/70 rounded-lg p-6 border border-gray-700 hover:border-indigo-500 transition-all duration-300">
+                <h4 class="font-medium text-white text-xl mb-3">Anthropic API</h4>
+                <p class="mb-4">We use the Anthropic API for certain services. According to Anthropic's privacy policy, your data processed through the Anthropic API will not be used to train Anthropic's models except in very specific circumstances (such as for Trust & Safety reviews, explicit reporting, or explicit opt-in for training). Anthropic's policy explicitly states: "We will not use your Inputs or Outputs to train our models" outside of these exceptions.</p>
+                <div class="flex space-x-4 text-sm">
+                  <a href="https://www.anthropic.com/legal/privacy" class="text-indigo-400 hover:text-indigo-300 flex items-center transition duration-300">
+                    <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                    Anthropic Privacy Policy
+                  </a>
+                </div>
+              </div>
+
+              <!-- Google Gemini Card -->
+              <div class="bg-gray-800/70 rounded-lg p-6 border border-gray-700 hover:border-indigo-500 transition-all duration-300">
+                <h4 class="font-medium text-white text-xl mb-3">Google Gemini API (Paid Service)</h4>
+                <p class="mb-4">When using Google's Gemini API, we use the Paid Service accessed through a Google Cloud Billing account. For Paid Services, Google's terms explicitly state that they do not use your prompts or responses to improve their products and process data according to their Data Processing Addendum.</p>
+                <div class="flex space-x-4 text-sm">
+                  <a href="https://ai.google.dev/gemini-api/terms" class="text-indigo-400 hover:text-indigo-300 flex items-center transition duration-300">
+                    <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                    Gemini API Terms of Service
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+              <svg class="w-6 h-6 mr-2 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Your Peace of Mind
+            </h3>
+            <p>We are committed to maintaining the highest standards of data security and confidentiality throughout the entire lifecycle of your data with us. As an independent provider, we prioritize building trust with our clients. If you have any specific questions or concerns about how your data is handled, please don't hesitate to <a href="/contact/" class="text-indigo-400 hover:text-indigo-300 border-b border-indigo-400 hover:border-indigo-300 transition-all duration-300">contact us</a>.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <h3>How We Handle Your Data</h3>
-    <p>When you use our services, whether providing scripts for analysis or using our platform features, here's how we ensure security and confidentiality at every stage:</p>
+  </div>
+</section>
 
-    <p><strong>Secure File Reception:</strong> When you need to send us scripts, we utilize secure file transfer methods (like dedicated secure upload links) designed to protect your data in transit, ensuring only authorized personnel receive it.</p>
-
-    <p style="margin-bottom: 0.5rem;"><strong>Secure Processing & Storage:</strong> Your data resides and is processed in one of two secure environments, under our direct control:</p>
-    <ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem;">
-      <li style="margin-bottom: 0.5rem;"><strong>Local Encrypted Storage:</strong> Scripts and related data may be processed and stored locally utilizing built-in full-disk encryption. Access is strictly controlled.</li>
-      <li style="margin-bottom: 0.5rem;"><strong>Google Cloud Platform:</strong> Alternatively, processing and storage may occur within our secure Google Cloud Platform environment. We implement and manage robust security configurations within Google Cloud to protect your data, leveraging its security features while ensuring appropriate access controls and data handling protocols are followed.</li>
-    </ul>
-
-    <p><strong>Access Control:</strong> Strict access controls, both locally and on cloud storage, ensure only necessary personnel can access your data solely for the purpose of providing the requested service or for secure archival.</p>
-
-    <p><strong>Secure Transmission:</strong> Data transmitted between your system, our service, the AI APIs, and secure cloud storage uses encrypted connections (HTTPS/TLS).</p>
-
-    <p><strong>Data Minimization & Retention:</strong> We only process and store the data necessary for the service. We retain your data only as long as needed and as agreed upon, after which it is securely deleted upon request or after a defined period.</p>
-    
-    <h3>AI API Provider Policies</h3>
-    <p>We leverage leading AI API platforms designed for business use. Their policies regarding data usage during processing are crucial to our commitment:</p>
-
-    <p style="margin-bottom: 1rem;"><strong>OpenAI API:</strong> We use OpenAI's API platform for business services. Based on OpenAI's official documentation, your data processed through the OpenAI API will not be used to train OpenAI's models unless we explicitly choose to opt-in to data sharing with OpenAI. By default, data sharing for model training is disabled for API users.<br>
-      <a href="https://openai.com/policies/privacy-policy" style="color: var(--primary);">OpenAI Privacy Policy</a> | 
-      <a href="https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance" style="color: var(--primary);">OpenAI FAQ (see "Services for businesses")</a>
-    </p>
-
-    <p style="margin-bottom: 1rem;"><strong>Anthropic API:</strong> We use the Anthropic API for certain services. According to Anthropic's privacy policy, your data processed through the Anthropic API will not be used to train Anthropic's models except in very specific circumstances (such as for Trust & Safety reviews, explicit reporting, or explicit opt-in for training). Anthropic's policy explicitly states: "We will not use your Inputs or Outputs to train our models" outside of these exceptions.<br>
-      <a href="https://www.anthropic.com/legal/privacy" style="color: var(--primary);">Anthropic Privacy Policy</a>
-    </p>
-
-    <p style="margin-bottom: 1rem;"><strong>Google Gemini API (Paid Service):</strong> When using Google's Gemini API, we use the Paid Service accessed through a Google Cloud Billing account. For Paid Services, Google's terms explicitly state that they do not use your prompts or responses to improve their products and process data according to their Data Processing Addendum.<br>
-      <a href="https://ai.google.dev/gemini-api/terms" style="color: var(--primary);">Gemini API Additional Terms of Service</a>
-    </p>
-
-    <h3>Your Peace of Mind</h3>
-    <p>We are committed to maintaining the highest standards of data security and confidentiality throughout the entire lifecycle of your data with us. As an independent provider, we prioritize building trust with our clients. If you have any specific questions or concerns about how your data is handled, please don't hesitate to <a href="/contact/" style="color: var(--primary);">contact us</a>.</p>
-  </section>
-</div> 
-
+<!-- CTA Section -->
+<section class="py-16 md:py-20 bg-gradient-to-r from-indigo-600 to-purple-600">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Have More Questions About Security?</h2>
+    <p class="text-white text-lg mb-8 max-w-2xl mx-auto">We're happy to discuss our security practices in more detail or provide any additional information you may need.</p>
+    <a href="/contact/" class="bg-white text-indigo-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg shadow-lg inline-block text-lg transition duration-300">
+      Contact Our Team
+    </a>
+  </div>
+</section>
+  
   <!-- Footer Section -->
-<footer style="background-color: var(--dark); color: white; padding: 3rem 0;">
-  <div class="container">
-    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-      <div style="flex: 2; min-width: 300px;">
-        <h3 style="color: white; margin-top: 0;">SceneMind.ai</h3>
-        <p>AI-powered solutions for the film and television industry.</p>
+<footer class="bg-gray-900 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 class="text-xl font-semibold text-white mb-3">SceneMind.ai</h3>
+        <p class="text-gray-400">AI-powered solutions for the film and television industry.</p>
       </div>
       
-      <div style="flex: 1; min-width: 200px;">
-        <h4 style="color: white; margin-top: 0; margin-bottom: 1rem;">Products</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="/scan/" style="color: var(--light-gray); text-decoration: none;">Script Scanner</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/dylan/" style="color: var(--light-gray); text-decoration: none;">Dylan AI</a></li>
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-3">Products</h4>
+        <ul class="text-gray-400 space-y-2">
+          <li><a href="/scan/" class="hover:text-white transition-colors">Script Scanner</a></li>
+          <li><a href="/dylan/" class="hover:text-white transition-colors">Dylan AI</a></li>
         </ul>
       </div>
       
-      <div style="flex: 1; min-width: 200px;">
-        <h4 style="color: white; margin-top: 0; margin-bottom: 1rem;">Company</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="/about/" style="color: var(--light-gray); text-decoration: none;">About</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/contact/" style="color: var(--light-gray); text-decoration: none;">Contact</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/impressum/" style="color: var(--light-gray); text-decoration: none;">Impressum</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/privacy-policy/" style="color: var(--light-gray); text-decoration: none;">Privacy Policy</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/security/" style="color: var(--light-gray); text-decoration: none;">Data Security</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/terms/" style="color: var(--light-gray); text-decoration: none;">Terms of Service</a></li>
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-3">Company</h4>
+        <ul class="text-gray-400 space-y-2">
+          <li><a href="/about/" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/contact/" class="hover:text-white transition-colors">Contact</a></li>
+          <li><a href="/impressum/" class="hover:text-white transition-colors">Impressum</a></li>
+          <li><a href="/privacy-policy/" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/security/" class="hover:text-white transition-colors">Data Security</a></li>
+          <li><a href="/terms/" class="hover:text-white transition-colors">Terms of Service</a></li>
         </ul>
       </div>
     </div>
     
-    <div style="margin-top: 3rem; text-align: center; color: var(--gray);">
+    <div class="text-center text-gray-400 text-sm border-t border-gray-800 pt-6">
       <p>&copy; 2025 SceneMind. All rights reserved.</p>
     </div>
   </div>
-</footer> 
+</footer>
 
   <script>
     // Mobile menu toggle
@@ -495,4 +703,4 @@
     });
   </script>
 </body>
-</html> 
+</html>

@@ -3,67 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dylan AI - Script Scanner Pro</title>
+  <title>Dylan AI - SceneMind.ai</title>
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/img/favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #334155;
-      --accent: #f97316;
-      --light: #f8fafc;
-      --dark: #0f172a;
-      --gray: #64748b;
-      --light-gray: #e2e8f0;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      color: var(--secondary);
-      background-color: var(--light);
-      padding-top: 60px; /* Added to account for fixed navbar */
+      font-family: 'Inter', sans-serif;
+      background-color: #111827; /* Dark Gray */
+      color: #F3F4F6; /* Light Gray */
+    }
+    /* Subtle gradient background for hero */
+    .hero-gradient {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #1f2937 100%);
+    }
+    /* Custom gradient for buttons */
+    .btn-gradient {
+      background: linear-gradient(to right, #3b82f6, #6366f1); /* Blue to Indigo */
+      transition: all 0.3s ease;
+    }
+    .btn-gradient:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    }
+    /* Styling for feature icons */
+    .feature-icon {
+      background: linear-gradient(to bottom right, #3b82f6, #6366f1);
+      padding: 0.75rem; /* p-3 */
+      border-radius: 0.5rem; /* rounded-lg */
+      display: inline-flex; /* To center icon inside */
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem; /* mb-4 */
+    }
+    /* Styling for pricing cards */
+    .pricing-card {
+      background-color: #1f2937; /* Gray 800 */
+      border: 1px solid #374151; /* Gray 700 */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    /* Section dividers */
+    .section-divider {
+      border-top: 1px solid #374151; /* Gray 700 */
+      margin-top: 4rem; /* mt-16 */
+      margin-bottom: 4rem; /* mb-16 */
+    }
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
     }
     
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
+    /* Previous styles for backward compatibility - can be removed later */
+    :root {
+      --primary: #3b82f6; /* Updated to blue */
+      --primary-dark: #2563eb; /* Updated to darker blue */
+      --secondary: #1f2937; /* Dark gray */
+      --accent: #6366f1; /* Indigo */
+      --light: #111827; /* Dark gray */
+      --dark: #0f172a; /* Very dark blue */
+      --gray: #64748b; /* Slate gray */
+      --light-gray: #e2e8f0; /* Light gray */
     }
-    
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary-dark);
-    }
-    
-    h2 {
-      font-size: 2rem;
-      margin: 2rem 0 1rem;
-      color: var(--primary-dark);
-    }
-    
-    h3 {
-      font-size: 1.5rem;
-      margin: 1.5rem 0 1rem;
-      color: var(--secondary);
-    }
-    
-    p {
-      margin-bottom: 1rem;
-    }
-    
     /* Navbar styles */
     .navbar {
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       position: fixed;
       top: 0;
@@ -84,7 +95,7 @@
     .navbar-brand {
       font-weight: bold;
       font-size: 1.25rem;
-      color: var(--primary-dark);
+      color: #F3F4F6; /* Light Gray */
       text-decoration: none;
     }
     
@@ -98,18 +109,18 @@
     }
     
     .navbar-menu a {
-      color: var(--secondary);
+      color: #F3F4F6; /* Light Gray */
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
     
     .navbar-menu a:hover {
-      color: var(--primary);
+      color: #3b82f6; /* Blue */
     }
     
     .navbar-menu a.active {
-      color: var(--primary);
+      color: #3b82f6; /* Blue */
       position: relative;
     }
     
@@ -120,7 +131,7 @@
       right: 0;
       bottom: -5px;
       height: 2px;
-      background-color: var(--primary);
+      background-color: #3b82f6; /* Blue */
     }
     
     .navbar-toggle {
@@ -129,12 +140,12 @@
       border: none;
       cursor: pointer;
       font-size: 1.5rem;
-      color: var(--secondary);
+      color: #F3F4F6; /* Light Gray */
     }
     
     .page-header {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: white;
+      background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #1f2937 100%);
+      color: #F3F4F6; /* Light Gray */
       padding: 1.5rem 0;
       text-align: center;
     }
@@ -146,7 +157,7 @@
     }
     
     .page-header h1 {
-      color: white;
+      color: #F3F4F6; /* Light Gray */
       margin-bottom: 1rem;
     }
     
@@ -161,7 +172,7 @@
     
     .content-section {
       padding: 4rem 0;
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
     }
     
     .content-grid {
@@ -174,14 +185,14 @@
     .content-card {
       flex: 1;
       min-width: 300px;
-      background-color: var(--light);
+      background-color: #111827; /* Dark Gray */
       border-radius: 8px;
       padding: 2rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
     
     .highlight-box {
-      background-color: var(--light);
+      background-color: #111827; /* Dark Gray */
       border-radius: 8px;
       padding: 2rem;
       margin: 2rem 0;
@@ -198,13 +209,13 @@
     .comparison-column {
       width: 100%;
       padding: 2rem;
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
     
     .comparison-column h3 {
-      color: var(--dark);
+      color: #F3F4F6; /* Light Gray */
       margin-top: 0;
       margin-bottom: 0.75rem;
     }
@@ -228,7 +239,7 @@
       content: "→";
       position: absolute;
       left: 0;
-      color: var(--accent);
+      color: #6366f1; /* Indigo */
       font-weight: bold;
     }
     
@@ -240,7 +251,7 @@
     }
     
     .metric-item {
-      background-color: var(--light);
+      background-color: #111827; /* Dark Gray */
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -255,8 +266,8 @@
     
     .cta-btn {
       display: inline-block;
-      background-color: var(--accent);
-      color: white;
+      background-color: #6366f1; /* Indigo */
+      color: #F3F4F6; /* Light Gray */
       padding: 0.75rem 2rem;
       border-radius: 4px;
       text-decoration: none;
@@ -266,7 +277,7 @@
     }
     
     .cta-btn:hover {
-      background-color: #e86207;
+      background-color: #7c3aed;
     }
     
     @media (min-width: 768px) {
@@ -294,7 +305,7 @@
         left: 0;
         right: 0;
         flex-direction: column;
-        background-color: white;
+        background-color: #1f2937; /* Gray 800 */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 1rem 0;
         display: none;
@@ -325,7 +336,7 @@
     }
     
     .feature-card {
-      background-color: white;
+      background-color: #1f2937; /* Gray 800 */
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
       padding: 1.5rem;
@@ -341,7 +352,7 @@
     .feature-icon {
       font-size: 2rem;
       margin-right: 1rem;
-      color: var(--primary);
+      color: #3b82f6; /* Blue */
       align-self: flex-start;
     }
     
@@ -350,7 +361,7 @@
     }
     
     .feature-content h4 {
-      color: var(--primary-dark);
+      color: #3b82f6; /* Blue */
       margin: 0 0 0.75rem 0;
       font-size: 1.1rem;
     }
@@ -361,1138 +372,728 @@
     }
   </style>
 </head>
-<body>
+<body class="antialiased">
   <!-- Navigation Bar -->
-<nav class="navbar">
-  <div class="container">
-    <a href="/" class="navbar-brand">SceneMind.ai</a>
-    <button class="navbar-toggle" id="navbar-toggle">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
+<nav class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 py-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+    <div class="flex items-center">
+      <svg class="h-8 w-auto text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
-    </button>
-    <ul class="navbar-menu" id="navbar-menu">
-      <li><a href="/" >Home</a></li>
-      <li><a href="/scan/" >Script Scanner</a></li>
-      <li><a href="/dylan/" class="active">Dylan AI</a></li>
-      <li><a href="/about/" >About</a></li>
-      <li><a href="/contact/" >Contact</a></li>
-    </ul>
+      <a href="/" class="ml-3 text-xl font-bold text-white">SceneMind.ai</a>
+    </div>
+    <div class="hidden md:flex space-x-4">
+      <a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">Home</a>
+      
+      <!-- Products Dropdown -->
+      <div class="relative inline-block text-left" x-data="{ open: false }">
+        <button @click="open = !open" @click.away="open = false" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium flex items-center text-white">
+          Products
+          <svg class="ml-1 -mr-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div x-show="open" 
+             x-transition:enter="transition ease-out duration-100" 
+             x-transition:enter-start="transform opacity-0 scale-95" 
+             x-transition:enter-end="transform opacity-100 scale-100" 
+             x-transition:leave="transition ease-in duration-75" 
+             x-transition:leave-start="transform opacity-100 scale-100" 
+             x-transition:leave-end="transform opacity-0 scale-95" 
+             class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none" 
+             style="display: none;">
+          <div class="py-1">
+            <a href="/scan/" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-4 py-2 text-sm ">Script Scanner</a>
+            <a href="/dylan/" class="text-gray-300 hover:text-white hover:bg-gray-700 block px-4 py-2 text-sm text-white bg-gray-700">Dylan AI</a>
+          </div>
+        </div>
+      </div>
+      
+      <a href="/security/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">Data Security</a>
+      <a href="/about/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">About</a>
+      <a href="/contact/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">Contact</a>
+    </div>
+    <div class="md:hidden">
+      <button class="text-gray-400 hover:text-white focus:outline-none focus:text-white" id="navbar-toggle">
+        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
   </div>
-</nav> 
+  <!-- Mobile menu, show/hide based on menu state -->
+  <div class="hidden md:hidden" id="navbar-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a href="/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">Home</a>
+      
+      <!-- Mobile Products Dropdown Header -->
+      <div class="text-gray-400 block px-3 py-2 rounded-md text-base font-medium">Products:</div>
+      
+      <!-- Mobile Products Menu Items (Indented) -->
+      <a href="/scan/" class="text-gray-300 hover:text-white block px-6 py-2 rounded-md text-base font-medium ">- Script Scanner</a>
+      <a href="/dylan/" class="text-gray-300 hover:text-white block px-6 py-2 rounded-md text-base font-medium text-white bg-gray-800">- Dylan AI</a>
+      
+      <a href="/security/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">Data Security</a>
+      <a href="/about/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">About</a>
+      <a href="/contact/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium ">Contact</a>
+    </div>
+  </div>
+</nav>
 
   
-<head>
-  <!-- Add other head elements like meta tags, title (from layout), etc. -->
-  <link rel="stylesheet" href="/css/style.css">
-  
-  <style>
-    .pricing-section {
-      padding: 3rem 0;
-    }
-    .pricing-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    .pricing-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .pricing-header h2 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary-dark);
-    }
-    .pricing-header p {
-      font-size: 1.1rem;
-      color: var(--secondary);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: stretch;
-      margin-bottom: 2rem;
-    }
-    .pricing-card {
-      background-color: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 1.5rem 1.25rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .pricing-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-    .pricing-card-header {
-      text-align: center;
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .pricing-card-header h3 {
-      font-size: 1.3rem;
-      color: var(--primary-dark);
-      margin-bottom: 0.5rem;
-    }
-    .pricing-option {
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px dashed #e2e8f0;
-    }
-    .pricing-option:last-child {
-       margin-bottom: 0;
-       padding-bottom: 0;
-       border-bottom: none;
-    }
-    .pricing-price {
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 0.2rem;
-      display: block;
-      text-align: center;
-    }
-    .pricing-description {
-      font-size: 0.9rem;
-      color: var(--dark);
-      margin-bottom: 0.15rem;
-      text-align: center;
-    }
-     .pricing-subtext {
-      font-size: 0.9rem;
-      color: var(--secondary);
-      text-align: center;
-      margin-top: 0.15rem;
-    }
-    .feature-list-title {
-        font-weight: 600;
-        color: var(--dark);
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
-        text-align: center;
-        font-size: 0.95rem;
-    }
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1rem 0;
-      flex-grow: 1;
-    }
-    .feature-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.35rem;
-      color: var(--secondary);
-      font-size: 0.85rem;
-    }
-    .feature-item::before {
-      content: '✓';
-      color: var(--primary);
-      font-weight: bold;
-      margin-right: 0.75rem;
-      font-size: 1.1rem;
-    }
-    .pricing-card .cta-btn {
-      margin-top: auto;
-      width: 100%;
-      text-align: center;
-      padding: 0.7rem 1rem;
-      font-size: 0.9rem;
-    }
-    .custom-quote-text {
-        text-align: center;
-        margin-top: 1.5rem;
-        font-size: 1rem;
-        color: var(--secondary);
-    }
-    .custom-quote-text a {
-        color: var(--primary);
-        text-decoration: underline;
-        font-weight: 500;
-    }
-
-    /* Styling for the value proposition list */
-    .value-prop-list {
-      list-style: none; /* Remove default bullets */
-      padding-left: 0.5rem; /* Adjust left padding */
-      margin-top: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .value-prop-list li {
-      position: relative;
-      padding-left: 1.75rem; /* Space for the icon */
-      margin-bottom: 0.75rem; /* Increased spacing */
-      font-size: 1.05rem; /* Slightly larger text */
-      line-height: 1.4;
-    }
-    .value-prop-list li::before {
-      content: '✓'; /* Use a checkmark */
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--primary); /* Use primary color for the icon */
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 900px) {
-      .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    @media (max-width: 600px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .pricing-options-container {
-        min-height: 21rem; /* Adjust this value as needed */
-        display: flex;
-        flex-direction: column;
-    }
-
-    .intro-paragraph {
-        font-size: 1.1rem;
-        line-height: 1.5;
-        color: var(--secondary);
-        margin-bottom: 1rem; /* Ensure space before the list */
-    }
-
-    /* Add bottom margin specifically to the h2 in the main features intro section */
-    .content-section > .container > h2 {
-        margin-bottom: 1.25rem; 
-    }
-
-    .hero {
-      text-align: center;
-      padding: 3rem 0 2rem;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      color: #4169e1;
-      margin-bottom: 1rem;
-    }
-    .hero .subtitle {
-      font-size: 1.5rem;
-      color: #6b7280;
-      margin-bottom: 0.5rem;
-      font-weight: normal;
-    }
-    .hero .tagline {
-      font-size: 1.6rem;
-      color: #6b7280;
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-    }
-    .feature-points {
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-      text-align: left;
-    }
-    .feature-points li {
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-  </style>
-</head>
-
-<!-- Page Header -->
-<div class="hero">
-  <div class="container">
-    <h1>Dylan AI</h1>
-    <p class="subtitle">AI-Powered Script Analysis & Marketability Assessment</p>
-    
-    <div class="feature-points">
-      <ul style="list-style: none;">
-        <!-- Feature points removed -->
-      </ul>
+<section class="hero-gradient py-20 md:py-32">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+      Elevate Your <span class="text-indigo-400">Script Development</span> with AI
+    </h1>
+    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+      Comprehensive script coverage, market analysis, and development guidance – all in one AI-powered solution.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <a href="#pricing" class="btn-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-md inline-block text-lg">
+        View Pricing
+      </a>
+      <a href="/contact/" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md inline-block text-lg transition duration-300">
+        Request Demo
+      </a>
     </div>
-    
-    <a href="#pricing" class="cta-btn" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'}); return false;">View Pricing</a>
   </div>
-</div>
+</section>
 
-<!-- Main Features Section -->
-<section class="content-section" style="padding-top: 3rem; padding-bottom: 2rem;">
-  <div class="container">
-    <h2>Elevate Your <strong>Script Development Process</strong> & Sharpen <strong>Market Focus</strong></h2>
-    <p class="intro-paragraph">The competitive film and television landscape demands continuous script improvement and strong market positioning. You need an intelligent tool to:</p>
-    <ul class="value-prop-list">
-       <li><strong>Guide development iterations</strong> effectively.</li>
-       <li><strong>Refine genre alignment</strong> for target audiences.</li>
-       <li><strong>Identify high-potential projects</strong> earlier.</li>
-       <li>Make <strong>smarter creative and investment decisions</strong>.</li>
+<section class="py-16 md:py-24 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Elevate Your <span class="text-indigo-400">Script Development Process</span> & Sharpen <span class="text-indigo-400">Market Focus</span></h2>
+    <p class="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">The competitive film and television landscape demands continuous script improvement and strong market positioning. You need an intelligent tool to:</p>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto text-gray-300">
+       <li class="flex items-start">
+         <svg class="h-6 w-6 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+         </svg>
+         <span><strong class="text-white">Guide development iterations</strong> effectively.</span>
+       </li>
+       <li class="flex items-start">
+         <svg class="h-6 w-6 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+         </svg>
+         <span><strong class="text-white">Analyze market potential</strong> for your project.</span>
+       </li>
+       <li class="flex items-start">
+         <svg class="h-6 w-6 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+         </svg>
+         <span><strong class="text-white">Evaluate your screenplay</strong> against industry standards.</span>
+       </li>
+       <li class="flex items-start">
+         <svg class="h-6 w-6 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+         </svg>
+         <span><strong class="text-white">Identify strengths and weaknesses</strong> in your material.</span>
+       </li>
+       <li class="flex items-start">
+         <svg class="h-6 w-6 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+         </svg>
+         <span><strong class="text-white">Generate actionable insights</strong> for revision.</span>
+       </li>
+       <li class="flex items-start">
+         <svg class="h-6 w-6 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+         </svg>
+         <span><strong class="text-white">Position your project</strong> for optimal market appeal.</span>
+       </li>
     </ul>
     
-    <div class="highlight-box">
-      <h3>Introducing Dylan AI: Your <strong>Strategic Partner</strong> in Script Development</h3>
-      <p>Built for <strong>genuine narrative insight</strong> and industry context, Dylan AI delivers <strong>dense, thoughtful analysis</strong> designed to fuel iterative improvement. Use its practical summaries and in-depth evaluations to discover what makes scripts truly work, refine their marketability, and guide them towards their full potential.</p>
+    <div class="mt-12 text-center">
+      <a href="#demo" class="btn-gradient text-white font-semibold py-2 px-6 rounded-lg shadow-md inline-block transition duration-300">
+        See Example Report
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Complete Coverage Analysis Section -->
+<section class="py-16 md:py-24 bg-gray-800/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Complete Coverage Analysis</h2>
+    <p class="text-lg text-gray-300 mb-12 max-w-3xl mx-auto text-center">Dylan AI evaluates scripts across all critical dimensions of screenwriting craft, providing a comprehensive framework to <strong class="text-indigo-400">guide development and ensure no element is overlooked</strong>.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Concept -->
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">💡</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Concept</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Evaluation of premise originality, dramatic potential, and commercial viability in today's marketplace.</p>
+      </div>
+      
+      <!-- Theme -->
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">🧩</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Theme</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Analysis of thematic elements, cohesion, relevance to contemporary audiences, and meaning.</p>
+      </div>
+      
+      <!-- Structure -->
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">🏗️</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Structure</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Assessment of dramatic architecture, pacing, tension management, and narrative momentum.</p>
+      </div>
+      
+      <!-- Character -->
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">👤</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Character</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Review of protagonist journey, supporting characters, relationships, and emotional investment potential.</p>
+      </div>
+      
+      <!-- Dialogue -->
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">💬</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Dialogue</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Analysis of voice, subtext, character differentiation, and authenticity of speech patterns.</p>
+      </div>
+      
+      <!-- Visual Elements -->
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">🎬</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Visual Elements</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Assessment of scene construction, descriptive style, action sequences, and cinematic potential.</p>
+      </div>
+      
+      <!-- Stakes & Conflict -->
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">⚔️</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Stakes & Conflict</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Evaluation of dramatic tension, obstacles, antagonistic forces, and narrative drive.</p>
+      </div>
+      
+      <!-- Market Positioning -->
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">🎯</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Market Positioning</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Insights on genre alignment, target audience, comparable titles, and commercial potential.</p>
+      </div>
+      
+      <!-- Production Considerations -->
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">💰</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Production Considerations</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Assessment of budget implications, production challenges, and practical execution factors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Script Breakdown & Coverage Workflow Section -->
+<section class="py-16 md:py-24 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Workflow</h2>
+    <p class="text-lg text-gray-300 mb-12 max-w-3xl mx-auto text-center">Dylan AI transforms your screenplay into three distinct reports, each serving a specific purpose in your development process.</p>
+    
+    <div class="max-w-5xl mx-auto">
+      <!-- Workflow Steps -->
+      <div class="relative bg-gray-800 rounded-xl p-8 mb-16">
+        <!-- Input -->
+        <div class="bg-gray-700 rounded-lg p-6 mb-10 relative z-10">
+          <h3 class="text-xl font-semibold text-white mb-2">Input</h3>
+          <p class="text-gray-300">Submit your screenplay in PDF or Final Draft format</p>
+        </div>
+        
+        <!-- Arrow Down -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0">
+          <svg class="h-10 w-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+        
+        <!-- Output Reports -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="pricing-card rounded-lg p-6">
+            <span class="bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">Report 1</span>
+            <h3 class="text-xl font-semibold text-white mb-2">Executive Summary</h3>
+            <p class="text-gray-400 text-sm mb-4">Concise overview with key strengths, challenges, and top recommendations.</p>
+            <div class="flex justify-center">
+              <span class="text-3xl text-indigo-400">📊</span>
+            </div>
+          </div>
+          
+          <div class="pricing-card rounded-lg p-6">
+            <span class="bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">Report 2</span>
+            <h3 class="text-xl font-semibold text-white mb-2">Development Guide</h3>
+            <p class="text-gray-400 text-sm mb-4">Detailed analysis with specific feedback and actionable revision strategies.</p>
+            <div class="flex justify-center">
+              <span class="text-3xl text-indigo-400">📝</span>
+            </div>
+          </div>
+          
+          <div class="pricing-card rounded-lg p-6">
+            <span class="bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">Report 3</span>
+            <h3 class="text-xl font-semibold text-white mb-2">Market Analysis</h3>
+            <p class="text-gray-400 text-sm mb-4">Positioning assessment, audience targeting, and commercial potential evaluation.</p>
+            <div class="flex justify-center">
+              <span class="text-3xl text-indigo-400">🎯</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
-    <!-- Features Section -->
-    <section class="content-section" style="background-color: var(--light);">
-      <div class="container">
-        <h2>Actionable Intelligence for Script Evaluation</h2>
-        <p>Each Dylan AI report is structured to provide the <strong>critical information you need, fast</strong>:</p>
-        
-        <div class="feature-cards">
-          <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <div class="feature-content">
-              <h4>Clear Recommendation & Overall Assessment</h4>
-              <p>A concise verdict (<strong>Recommend, Consider, Pass</strong>) and a synthesized paragraph evaluating the script's potential, execution, and market fit – designed for quick filtering.</p>
-            </div>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">⚖️</div>
-            <div class="feature-content">
-              <h4>Strengths & Weaknesses</h4>
-              <p>Key takeaways highlighting the script's core merits and critical flaws.</p>
-            </div>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">📝</div>
-            <div class="feature-content">
-              <h4>Logline & Synopsis</h4>
-              <p>Rapidly understand the concept and plot. Essential for determining fit with your mandate.</p>
-            </div>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <div class="feature-content">
-              <h4>Marketability Analysis</h4>
-              <p>Crucial insights into <strong>target audience, genre positioning, and relevant Comparable Titles (Comps)</strong>. Use this analysis to assess commercial viability and guide development tweaks for stronger market fit.</p>
-            </div>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">👤</div>
-            <div class="feature-content">
-              <h4>Character Assessment</h4>
-              <p>Evaluation of main characters' appeal, development, and contribution to the narrative's potential.</p>
-            </div>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">🔍</div>
-            <div class="feature-content">
-              <h4>Comprehensive Craft Analysis</h4>
-              <p>In-depth analysis of screenwriting craft (structure, pacing, dialogue, theme, etc.). Justifies the overall assessment and provides actionable feedback to fuel <strong>strategic revisions and iterative script refinement</strong>.</p>
-            </div>
-          </div>
-        </div>
+    <div class="text-center mt-8">
+      <a href="#demo" class="btn-gradient text-white font-semibold py-2 px-6 rounded-lg shadow-md inline-block transition duration-300">
+        See It In Action
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Demo Section -->
+<section id="demo" class="py-16 md:py-24 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Demo: <span class="text-indigo-400">Interstellar</span> (2014)</h2>
+    <p class="text-lg text-gray-300 mb-8 max-w-3xl mx-auto text-center">Experience the depth and utility of Dylan AI coverage. We've analyzed the acclaimed screenplay for <span class="italic">Interstellar</span> to demonstrate our approach. The analysis is broken down into three distinct parts:</p>
+    
+    <div class="flex justify-center my-8">
+      <a href="https://static1.squarespace.com/static/5a1c2452268b96d901cd3471/t/5b95b7b0032be4f0cd3a8db2/1536538544682/Interstallar.pdf" target="_blank" class="btn-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-md inline-block text-lg transition duration-300">
+        View Original Script PDF
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+      <div class="pricing-card rounded-lg p-6">
+        <h3 class="text-xl font-semibold text-white mb-4">1. Overview Report</h3>
+        <ul class="space-y-3 mb-6 text-gray-400">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>The script's <strong class="text-white">identity card</strong></span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Use this to <strong class="text-white">position the work</strong></span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong class="text-white">Summarize key elements</strong> (loglines, synopsis, characters)</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Identify <strong class="text-white">unique selling points</strong></span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>See <strong class="text-white">comparable titles</strong> and <strong class="text-white">genre classifications</strong></span>
+          </li>
+        </ul>
+        <a href="/docs/interstellar_overview.pdf" target="_blank" class="btn-gradient text-white font-semibold py-2 px-4 rounded-lg shadow-md inline-block w-full text-center transition duration-300">
+          Get PDF
+        </a>
       </div>
-    </section>
-
-    <!-- Craft Assessment Dimensions Section -->
-    <section class="content-section" style="background-color: #f9f7f2; padding: 4rem 0;">
-      <div class="container">
-        <h2 style="text-align: center; margin-bottom: 2.5rem;">Complete Coverage Analysis</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">Dylan AI evaluates scripts across all critical dimensions of screenwriting craft, providing a comprehensive framework to <strong>guide development and ensure no element is overlooked</strong>.</p>
-        
-        <style>
-          .craft-dimensions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-          }
-          .dimension-item {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: left;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--primary);
-            display: flex;
-            flex-direction: column;
-          }
-          .dimension-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-          }
-          .dimension-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.75rem;
-          }
-          .dimension-emoji {
-            font-size: 1.5rem;
-            margin-right: 0.75rem;
-            line-height: 1;
-          }
-          .dimension-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--dark);
-            margin: 0;
-            line-height: 1.2;
-          }
-          .dimension-desc {
-            font-size: 0.85rem;
-            color: var(--secondary);
-            margin: 0;
-            line-height: 1.4;
-          }
-          @media (max-width: 768px) {
-            .craft-dimensions {
-              grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            }
-          }
-        </style>
-        
-        <div class="craft-dimensions">
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">💡</span>
-              <h4 class="dimension-title">Concept</h4>
-            </div>
-            <p class="dimension-desc">Evaluates the core idea's originality, appeal, and execution potential in the current market.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">📊</span>
-              <h4 class="dimension-title">Plot</h4>
-            </div>
-            <p class="dimension-desc">Analyzes narrative coherence, engagement level, and effectiveness of story progression.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">📈</span>
-              <h4 class="dimension-title">Marketability</h4>
-            </div>
-            <p class="dimension-desc">Assesses commercial viability, target audience alignment, genre positioning, and informs development for production potential.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">👥</span>
-              <h4 class="dimension-title">Characters</h4>
-            </div>
-            <p class="dimension-desc">Examines depth, relatability, and development of key figures driving the narrative.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">🏗️</span>
-              <h4 class="dimension-title">Structure</h4>
-            </div>
-            <p class="dimension-desc">Reviews narrative architecture, act progression, and scene organization effectiveness.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">⏱️</span>
-              <h4 class="dimension-title">Pacing</h4>
-            </div>
-            <p class="dimension-desc">Measures rhythm, momentum management, and appropriate timing of key story beats.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">🌍</span>
-              <h4 class="dimension-title">Worldbuilding</h4>
-            </div>
-            <p class="dimension-desc">Evaluates setting detail, internal consistency, and immersive quality of the story world.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">📝</span>
-              <h4 class="dimension-title">Description</h4>
-            </div>
-            <p class="dimension-desc">Analyzes visual storytelling, scene-setting clarity, and action description effectiveness.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">🎭</span>
-              <h4 class="dimension-title">Tone</h4>
-            </div>
-            <p class="dimension-desc">Assesses emotional texture, consistency, and appropriateness for the story's genre.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">💬</span>
-              <h4 class="dimension-title">Dialogue</h4>
-            </div>
-            <p class="dimension-desc">Examines authenticity, character differentiation, and dramatic function of conversations.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">🧩</span>
-              <h4 class="dimension-title">Themes</h4>
-            </div>
-            <p class="dimension-desc">Reviews depth, integration, and resonance of underlying ideas and messages.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">✍️</span>
-              <h4 class="dimension-title">Writing</h4>
-            </div>
-            <p class="dimension-desc">Evaluates prose quality, efficiency, clarity, and effectiveness of overall writing style.</p>
-          </div>
-          
-          <div class="dimension-item">
-            <div class="dimension-header">
-              <span class="dimension-emoji">📄</span>
-              <h4 class="dimension-title">Format</h4>
-            </div>
-            <p class="dimension-desc">Assesses adherence to industry standards, readability, and professional presentation.</p>
-          </div>
-        </div>
+      
+      <div class="pricing-card rounded-lg p-6">
+        <h3 class="text-xl font-semibold text-white mb-4">2. Evaluation Report</h3>
+        <ul class="space-y-3 mb-6 text-gray-400">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong class="text-white">Quickly understand</strong> commercial and creative viability</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Provides an <strong class="text-white">overall assessment</strong></span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>A <strong class="text-white">PASS/CONSIDER/RECOMMEND</strong> verdict</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong class="text-white">Strengths/weaknesses</strong> analysis</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong class="text-white">High-level coverage</strong> across 13 critical dimensions</span>
+          </li>
+        </ul>
+        <a href="/docs/interstellar_evaluation.pdf" target="_blank" class="btn-gradient text-white font-semibold py-2 px-4 rounded-lg shadow-md inline-block w-full text-center transition duration-300">
+          Get PDF
+        </a>
       </div>
-    </section>
-
-    <!-- Script Breakdown & Coverage Workflow Section -->
-    <section class="content-section" style="padding: 4rem 0; background-color: white;">
-      <div class="container">
-        <h2 style="text-align: center; margin-bottom: 1rem;">Workflow</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">Dylan AI transforms your screenplay into three distinct reports, each serving a specific purpose in your development process.</p>
-        
-        <style>
-          .workflow-container {
-            max-width: 900px;
-            margin: 0 auto 2rem;
-          }
-          .workflow-chart {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          .input-container {
-            text-align: center;
-            margin-bottom: 2rem;
-          }
-          .input-box {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 1.5rem 2.5rem;
-            background-color: white;
-            display: inline-block;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-          }
-          .input-box:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-          }
-          .input-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary);
-          }
-          .input-title {
-            font-weight: 500;
-            font-size: 1.2rem;
-            color: var(--dark);
-            margin: 0;
-          }
-          .processor-container {
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-          }
-          .processor-container:before {
-            content: "";
-            width: 1px;
-            height: 2.5rem;
-            background-color: #e0e0e0;
-            position: absolute;
-            top: -2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-          }
-          .processor-box {
-            border: 1px solid var(--primary-light);
-            border-radius: 8px;
-            padding: 1.25rem 3rem;
-            background-color: rgba(var(--primary-rgb), 0.04);
-            display: inline-block;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-          }
-          .processor-box:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-          }
-          .processor-title {
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin: 0;
-          }
-          .output-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-top: 2.5rem;
-            position: relative;
-          }
-          .output-container:before {
-            content: "";
-            width: 70%;
-            height: 1px;
-            background-color: #e0e0e0;
-            position: absolute;
-            top: -1.5rem;
-            left: 15%;
-          }
-          .processor-container:after {
-            content: "";
-            width: 1px;
-            height: 2.5rem;
-            background-color: #e0e0e0;
-            position: absolute;
-            bottom: -2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-          }
-          .output-arrow {
-            position: absolute;
-            width: 1px;
-            height: 1.5rem;
-            background-color: #e0e0e0;
-            top: -1.5rem;
-          }
-          .output-arrow:before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            border-left: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
-            position: absolute;
-            top: -3px;
-            left: -2px;
-            transform: rotate(-45deg);
-          }
-          .output-arrow.left {
-            left: 15%;
-          }
-          .output-arrow.center {
-            left: 50%;
-            transform: translateX(-50%);
-          }
-          .output-arrow.right {
-            right: 15%;
-          }
-          .output-box {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 1.25rem 1rem;
-            background-color: white;
-            width: 30%;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-            text-align: center;
-            transition: all 0.3s ease;
-          }
-          .output-box:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-            transform: translateY(-3px);
-          }
-          .output-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-          }
-          .output-title {
-            font-weight: 500;
-            font-size: 1.05rem;
-            color: var(--dark);
-            margin: 0 0 0.5rem 0;
-          }
-          .output-desc {
-            font-size: 0.82rem;
-            color: var(--secondary);
-            margin: 0;
-            line-height: 1.4;
-          }
-          
-          @media (max-width: 768px) {
-            .output-container {
-              flex-direction: column;
-              align-items: center;
-            }
-            .output-box {
-              width: 80%;
-              margin-bottom: 1.5rem;
-            }
-            .output-container:before {
-              display: none;
-            }
-            .output-arrow {
-              display: none;
-            }
-          }
-        </style>
-        
-        <div class="workflow-container">
-          <div class="workflow-chart">
-            <div class="input-container">
-              <div class="input-box">
-                <div class="input-icon">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                    <polyline points="10 9 9 9 8 9"></polyline>
-                  </svg>
-                </div>
-                <h3 class="input-title">Your Script</h3>
-              </div>
-            </div>
-            
-            <div class="processor-container">
-              <div class="processor-box">
-                <h3 class="processor-title">Dylan AI writes a 3-part report</h3>
-              </div>
-            </div>
-            
-            <div class="output-container">
-              <div class="output-arrow left"></div>
-              <div class="output-arrow center"></div>
-              <div class="output-arrow right"></div>
-              
-              <div class="output-box">
-                <div class="output-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="3" y1="9" x2="21" y2="9"></line>
-                    <line x1="9" y1="21" x2="9" y2="9"></line>
-                  </svg>
-                </div>
-                <h4 class="output-title">1. Overview</h4>
-                <p class="output-desc">Captures script identity, positioning, and key elements</p>
-              </div>
-              
-              <div class="output-box">
-                <div class="output-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="2" x2="12" y2="6"></line>
-                    <line x1="12" y1="18" x2="12" y2="22"></line>
-                    <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
-                    <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
-                    <line x1="2" y1="12" x2="6" y2="12"></line>
-                    <line x1="18" y1="12" x2="22" y2="12"></line>
-                    <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
-                    <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
-                  </svg>
-                </div>
-                <h4 class="output-title">2. Evaluation</h4>
-                <p class="output-desc">Provides assessment, verdict, and analysis across dimensions</p>
-              </div>
-              
-              <div class="output-box">
-                <div class="output-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    <line x1="8" y1="11" x2="14" y2="11"></line>
-                  </svg>
-                </div>
-                <h4 class="output-title">3. Reference</h4>
-                <p class="output-desc">Offers detailed analysis with examples and justification</p>
-              </div>
-            </div>
-          </div>
-          
-          <div style="text-align: center; margin-top: 3rem;">
-            <p style="font-style: italic; color: var(--secondary); max-width: 700px; margin: 0 auto; font-size: 0.9rem;">Each report fulfills a specific function in your development process, from quick assessment to deep analysis. Together, they provide a comprehensive framework for script evaluation.</p>
-          </div>
-        </div>
+      
+      <div class="pricing-card rounded-lg p-6">
+        <h3 class="text-xl font-semibold text-white mb-4">3. Deep Coverage Reference</h3>
+        <ul class="space-y-3 mb-6 text-gray-400">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong class="text-white">Optional, exhaustive analysis</strong> (typically 50+ pages)</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Use this reference to <strong class="text-white">zoom in on specific dimensions</strong></span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Explore <strong class="text-white">detailed examples</strong></span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Understand the <strong class="text-white">justification</strong> behind the higher-level assessments</span>
+          </li>
+        </ul>
+        <a href="/docs/interstellar_reference.pdf" target="_blank" class="btn-gradient text-white font-semibold py-2 px-4 rounded-lg shadow-md inline-block w-full text-center transition duration-300">
+          Get PDF
+        </a>
       </div>
-    </section>
-
-    <!-- Demo Section -->
-    <section class="content-section" style="padding-bottom: 3rem;">
-      <div class="container">
-        <h2>Demo: <i>Interstellar</i> (2014)</h2>
-
-        <p style="margin-top: 1.5rem; margin-bottom: 1rem;">Experience the depth and utility of Dylan AI coverage. We've analyzed the acclaimed screenplay for <i>Interstellar</i> to demonstrate our approach. The analysis is broken down into three distinct parts:</p>
-
-        <div style="text-align: center; margin-top: 2rem; margin-bottom: 2.5rem;">
-           <a href="https://static1.squarespace.com/static/5a1c2452268b96d901cd3471/t/5b95b7b0032be4f0cd3a8db2/1536538544682/Interstallar.pdf" target="_blank" class="cta-btn" style="background-color: #1a365d; box-shadow: 0 3px 6px rgba(0,0,0,0.2); font-size: 0.9rem; display: inline-block;" onmouseover="this.style.backgroundColor='#2c4a7c'" onmouseout="this.style.backgroundColor='#1a365d'">View Original Script PDF</a>
-        </div>
-
-        <style>
-          .report-part-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 0; /* Adjusted margin */
-            margin-bottom: 2.5rem;
-          }
-          .report-part-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1.75rem 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-            border-left: 4px solid var(--primary-light);
-            display: flex;
-            flex-direction: column;
-          }
-          .report-part-card h4 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            color: var(--primary-dark);
-            font-size: 1.15rem;
-          }
-          .report-part-card p {
-            font-size: 0.9rem;
-            color: var(--secondary);
-            line-height: 1.4;
-            flex-grow: 1;
-            margin-bottom: 1rem;
-          }
-          .report-part-card .cta-btn {
-              margin-top: auto;
-              font-size: 0.85rem;
-              padding: 0.6rem 1.2rem;
-              text-align: center;
-              display: inline-block;
-              width: 100%; /* Make button full width */
-          }
-        </style>
-
-        <div class="report-part-grid">
-          <div class="report-part-card">
-            <h4>1. Overview Report</h4>
-            <ul style="list-style: none; font-size: 0.9rem; color: var(--secondary); line-height: 1.6; flex-grow: 1; margin: 0.8rem 0 1.2rem 0; padding: 0;">
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span>The script's <strong>"identity card"</strong></span>
-              </li>
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span>Use this to <strong>position the work</strong></span>
-              </li>
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span><strong>Summarize key elements</strong> (loglines, synopsis, characters)</span>
-              </li>
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span>Identify <strong>unique selling points</strong></span>
-              </li>
-              <li style="display: flex; align-items: flex-start;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span>See <strong>comparable titles</strong> and <strong>genre classifications</strong></span>
-              </li>
-            </ul>
-            <a href="/docs/interstellar_overview.pdf" target="_blank" class="cta-btn" style="background-color: var(--primary); color: white;" onmouseover="this.style.backgroundColor='#e05d00'" onmouseout="this.style.backgroundColor='var(--primary)'">Get PDF</a>
-          </div>
-
-          <div class="report-part-card">
-            <h4>2. Evaluation Report</h4>
-            <ul style="list-style: none; font-size: 0.9rem; color: var(--secondary); line-height: 1.6; flex-grow: 1; margin: 0.8rem 0 1.2rem 0; padding: 0;">
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span><strong>Quickly understand</strong> commercial and creative viability</span>
-              </li>
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span>Provides an <strong>overall assessment</strong></span>
-              </li>
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span>A <strong>PASS/CONSIDER/RECOMMEND</strong> verdict</span>
-              </li>
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span><strong>Strengths/weaknesses</strong> analysis</span>
-              </li>
-              <li style="display: flex; align-items: flex-start;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span><strong>High-level coverage</strong> across 13 critical dimensions</span>
-              </li>
-            </ul>
-            <a href="/docs/interstellar_evaluation.pdf" target="_blank" class="cta-btn" style="background-color: var(--primary); color: white;" onmouseover="this.style.backgroundColor='#e05d00'" onmouseout="this.style.backgroundColor='var(--primary)'">Get PDF</a>
-          </div>
-
-          <div class="report-part-card">
-            <h4>3. Deep Coverage Reference</h4>
-            <ul style="list-style: none; font-size: 0.9rem; color: var(--secondary); line-height: 1.6; flex-grow: 1; margin: 0.8rem 0 1.2rem 0; padding: 0;">
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span><strong>Optional, exhaustive analysis</strong> (typically 50+ pages)</span>
-              </li>
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span>Use this reference to <strong>zoom in on specific dimensions</strong></span>
-              </li>
-              <li style="display: flex; align-items: flex-start; margin-bottom: 0.8rem;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span>Explore <strong>detailed examples</strong></span>
-              </li>
-              <li style="display: flex; align-items: flex-start;">
-                <span style="color: var(--primary); margin-right: 0.6rem; font-size: 1rem;">•</span>
-                <span>Understand the <strong>justification</strong> behind the higher-level assessments</span>
-              </li>
-            </ul>
-            <a href="/docs/interstellar_reference.pdf" target="_blank" class="cta-btn" style="background-color: var(--primary); color: white;" onmouseover="this.style.backgroundColor='#e05d00'" onmouseout="this.style.backgroundColor='var(--primary)'">Get PDF</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
+    </div>
   </div>
 </section>
 
 <!-- File Format & Language Support Section -->
-<section class="content-section" style="background-color: white;">
-  <div class="container">
-    <h2>Seamless Integration with <strong>Your Workflow</strong></h2>
+<section class="py-16 md:py-24 bg-gray-800/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Seamless Integration with <span class="text-indigo-400">Your Workflow</span></h2>
+    <p class="text-lg text-gray-300 mb-12 max-w-3xl mx-auto text-center">Work with scripts in their natural format without conversion headaches or special requirements.</p>
     
-    <div class="feature-cards">
-      <div class="feature-card">
-        <div class="feature-icon">📄</div>
-        <div class="feature-content">
-          <h4>Native PDF Support</h4>
-          <p>Submit scripts as standard PDF files – <strong>no special formatting required</strong>. Dylan AI reads raw PDF documents directly, eliminating conversion headaches and preserving original formatting.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">📄</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Native PDF Support</h3>
         </div>
+        <p class="text-gray-400 text-sm">Submit scripts as standard PDF files – <strong class="text-white">no special formatting required</strong>. Dylan AI reads raw PDF documents directly, eliminating conversion headaches and preserving original formatting.</p>
       </div>
       
-      <div class="feature-card">
-        <div class="feature-icon">🌐</div>
-        <div class="feature-content">
-          <h4>Multilingual Capability</h4>
-          <p>Evaluate scripts written in <strong>multiple languages</strong>. <strong>Facilitate cross-national productions with side-by-side translation</strong> that breaks down language barriers in global co-productions.</p>
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">🌐</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Multilingual Capability</h3>
         </div>
+        <p class="text-gray-400 text-sm">Evaluate scripts written in <strong class="text-white">multiple languages</strong>. <strong class="text-white">Facilitate cross-national productions</strong> with side-by-side translation that breaks down language barriers in global co-productions.</p>
       </div>
       
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <div class="feature-content">
-          <h4>Zero Preparation Required</h4>
-          <p>Upload scripts directly from your existing archives or submissions – <strong>no preprocessing needed</strong>. Dylan AI handles all the parsing and format recognition automatically.</p>
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">⚡</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Zero Preparation Required</h3>
         </div>
+        <p class="text-gray-400 text-sm">Upload scripts directly from your existing archives or submissions – <strong class="text-white">no preprocessing needed</strong>. Dylan AI handles all the parsing and format recognition automatically.</p>
       </div>
     </div>
     
-    <div class="highlight-box" style="margin-top: 2.5rem;">
-      <h3 style="margin-top: 0;">Work With Scripts As They Come</h3>
-      <p>Dylan AI is designed for the realities of script submissions. No need for writers to use specific software or conform to proprietary formats. Our system parses standard screenplay formats automatically, regardless of which writing tool was used to create them.</p>
+    <div class="bg-gray-700/70 rounded-lg p-6 mt-12 max-w-4xl mx-auto">
+      <h3 class="text-xl font-semibold text-white mb-3">Work With Scripts As They Come</h3>
+      <p class="text-gray-300">Dylan AI is designed for the realities of script submissions. No need for writers to use specific software or conform to proprietary formats. Our system parses standard screenplay formats automatically, regardless of which writing tool was used to create them.</p>
     </div>
   </div>
 </section>
 
 <!-- Role-Specific Value Section -->
-<section class="content-section" style="background-color: var(--light);">
-  <div class="container">
-    <h2>Value for <strong>Every Role</strong> in the Development Pipeline</h2>
-    <p>Dylan AI delivers tailored benefits for each stakeholder, enhancing the entire script development process:</p>
+<section class="py-16 md:py-24 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Value for <span class="text-indigo-400">Every Role</span> in the Development Pipeline</h2>
+    <p class="text-lg text-gray-300 mb-12 max-w-3xl mx-auto text-center">Dylan AI delivers tailored benefits for each stakeholder, enhancing the entire script development process:</p>
     
-    <div class="feature-cards">
-      <div class="feature-card">
-        <div class="feature-icon">🎬</div>
-        <div class="feature-content">
-          <h4>For Producers</h4>
-          <p><strong>Filter submissions efficiently</strong> and use detailed analysis to <strong>guide script development iteratively</strong>. Make data-informed investment decisions with clear marketability assessments, refining projects for optimal market fit and reducing risks.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="pricing-card rounded-lg p-6">
+        <div class="flex items-center mb-4">
+          <span class="text-3xl text-indigo-400 mr-3">🎬</span>
+          <h3 class="text-xl font-semibold text-white">For Producers</h3>
         </div>
+        <p class="text-gray-400 text-sm"><strong class="text-white">Filter submissions efficiently</strong> and use detailed analysis to <strong class="text-white">guide script development iteratively</strong>. Make data-informed investment decisions with clear marketability assessments, refining projects for optimal market fit and reducing risks.</p>
       </div>
       
-      <div class="feature-card">
-        <div class="feature-icon">👔</div>
-        <div class="feature-content">
-          <h4>For Executives</h4>
-          <p><strong>Optimize your development pipeline</strong> with consistent, objective analyses. Use quantifiable metrics and iterative feedback to compare projects, prioritize your slate strategically, and <strong>ensure alignment with market demands</strong>.</p>
+      <div class="pricing-card rounded-lg p-6">
+        <div class="flex items-center mb-4">
+          <span class="text-3xl text-indigo-400 mr-3">👔</span>
+          <h3 class="text-xl font-semibold text-white">For Executives</h3>
         </div>
+        <p class="text-gray-400 text-sm"><strong class="text-white">Optimize your development pipeline</strong> with consistent, objective analyses. Use quantifiable metrics and iterative feedback to compare projects, prioritize your slate strategically, and <strong class="text-white">ensure alignment with market demands</strong>.</p>
       </div>
       
-      <div class="feature-card">
-        <div class="feature-icon">✍️</div>
-        <div class="feature-content">
-          <h4>For Screenwriters</h4>
-          <p>Use Dylan AI as a <strong>development tool across multiple drafts</strong>. Identify critical weaknesses, strengthen characters, refine structure, and enhance marketability with actionable guidance. Understand how your work aligns with industry expectations and <strong>iterate effectively</strong>.</p>
+      <div class="pricing-card rounded-lg p-6">
+        <div class="flex items-center mb-4">
+          <span class="text-3xl text-indigo-400 mr-3">✍️</span>
+          <h3 class="text-xl font-semibold text-white">For Screenwriters</h3>
         </div>
+        <p class="text-gray-400 text-sm">Use Dylan AI as a <strong class="text-white">development tool across multiple drafts</strong>. Identify critical weaknesses, strengthen characters, refine structure, and enhance marketability with actionable guidance. Understand how your work aligns with industry expectations and <strong class="text-white">iterate effectively</strong>.</p>
       </div>
       
-      <div class="feature-card">
-        <div class="feature-icon">👥</div>
-        <div class="feature-content">
-          <h4>For Development Teams</h4>
-          <p><strong>Increase development bandwidth</strong> and maintain quality standards. Use Dylan AI not just for initial filtering, but to <strong>guide the iterative refinement</strong> of high-potential scripts, focusing human creativity on strategic development choices.</p>
+      <div class="pricing-card rounded-lg p-6">
+        <div class="flex items-center mb-4">
+          <span class="text-3xl text-indigo-400 mr-3">👥</span>
+          <h3 class="text-xl font-semibold text-white">For Development Teams</h3>
         </div>
+        <p class="text-gray-400 text-sm"><strong class="text-white">Increase development bandwidth</strong> and maintain quality standards. Use Dylan AI not just for initial filtering, but to <strong class="text-white">guide the iterative refinement</strong> of high-potential scripts, focusing human creativity on strategic development choices.</p>
       </div>
     </div>
     
-    <div class="highlight-box" style="margin-top: 2.5rem;">
-      <h3 style="margin-top: 0;">Accelerate Your Development Cycle</h3>
-      <p>Dylan AI enhances collaboration by providing a common, detailed assessment framework. Teams can focus discussions on <strong>strategic creative choices and market positioning</strong>, accelerating the development process from initial concept to polished, market-ready script.</p>
+    <div class="bg-gray-700/70 rounded-lg p-6 mt-12 max-w-4xl mx-auto">
+      <h3 class="text-xl font-semibold text-white mb-3">Accelerate Your Development Cycle</h3>
+      <p class="text-gray-300">Dylan AI enhances collaboration by providing a common, detailed assessment framework. Teams can focus discussions on <strong class="text-white">strategic creative choices and market positioning</strong>, accelerating the development process from initial concept to polished, market-ready script.</p>
     </div>
   </div>
 </section>
 
 <!-- Pricing Section -->
-<section id="pricing" class="pricing-section" style="background-color: #f8f9fa;">
-  <div class="pricing-container">
-    <div class="pricing-header">
-      <h2>Pricing Plans</h2>
-      <p>Transparent pricing for insightful script analysis. Choose the plan that fits your needs.</p>
-    </div>
-
-    <div class="pricing-grid">
-
+<section id="pricing" class="py-16 md:py-24 bg-gray-800/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Pricing Plans</h2>
+    <p class="text-lg text-gray-300 mb-12 max-w-3xl mx-auto text-center">Transparent pricing for insightful script analysis. Choose the plan that fits your needs.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Single Script Card -->
-      <div class="pricing-card">
-        <div class="pricing-card-header">
-          <h3>Single Script</h3>
+      <div class="pricing-card rounded-lg p-6 border border-gray-700">
+        <h3 class="text-xl font-semibold text-white mb-2 text-center">Single Script</h3>
+        <div class="text-center mb-6">
+          <span class="text-4xl font-bold text-white">€75</span>
+          <p class="text-gray-400 mt-1">Per Script</p>
+          <p class="text-sm text-gray-500">(Up to 150 pages)</p>
         </div>
-        <span class="pricing-price">€75</span>
-        <p class="pricing-description">Per Script</p>
-        <p class="pricing-subtext">(Up to 150 pages)</p>
-
-        <div class="feature-list-title">Includes:</div>
-        <ul class="feature-list">
-           <li class="feature-item">Clear Recommendation</li>
-           <li class="feature-item">Strengths & Weaknesses Summary</li>
-           <li class="feature-item">Logline & Synopsis</li>
-           <li class="feature-item">Marketability Analysis</li>
-           <li class="feature-item">Character Assessment</li>
-           <li class="feature-item">Comprehensive Craft Analysis</li>
+        
+        <p class="text-gray-300 text-sm font-medium mb-3">Includes:</p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Clear Recommendation</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Strengths & Weaknesses Summary</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Logline & Synopsis</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Marketability Analysis</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Character Assessment</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Comprehensive Craft Analysis</span>
+          </li>
         </ul>
-        <a href="/contact/?service=script-analysis-single" class="cta-btn">Get Single Analysis</a>
+        <a href="/contact/?service=script-analysis-single" class="btn-gradient text-white font-semibold py-2 px-4 rounded-lg shadow-md inline-block w-full text-center transition duration-300">
+          Get Single Analysis
+        </a>
       </div>
-
+      
       <!-- 5-Script Pack Card -->
-      <div class="pricing-card">
-        <div class="pricing-card-header">
-          <h3>5-Script Pack</h3>
+      <div class="pricing-card rounded-lg p-6 border border-indigo-500">
+        <h3 class="text-xl font-semibold text-white mb-2 text-center">5-Script Pack</h3>
+        <div class="text-center mb-6">
+          <span class="text-4xl font-bold text-white">€340</span>
+          <p class="text-gray-400 mt-1">€68 per script</p>
+          <p class="text-sm text-indigo-400">(Save ~10%)</p>
         </div>
-        <span class="pricing-price">€340</span>
-        <p class="pricing-description">€68 per script</p>
-        <p class="pricing-subtext">(Save ~10%)</p>
-
-        <div class="feature-list-title">Includes:</div>
-        <ul class="feature-list">
-           <li class="feature-item">Clear Recommendation</li>
-           <li class="feature-item">Strengths & Weaknesses Summary</li>
-           <li class="feature-item">Logline & Synopsis</li>
-           <li class="feature-item">Marketability Analysis</li>
-           <li class="feature-item">Character Assessment</li>
-           <li class="feature-item">Comprehensive Craft Analysis</li>
+        
+        <p class="text-gray-300 text-sm font-medium mb-3">Includes:</p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Clear Recommendation</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Strengths & Weaknesses Summary</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Logline & Synopsis</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Marketability Analysis</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Character Assessment</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Comprehensive Craft Analysis</span>
+          </li>
         </ul>
-        <a href="/contact/?service=script-analysis-5pack" class="cta-btn">Get 5-Script Pack</a>
+        <a href="/contact/?service=script-analysis-5pack" class="btn-gradient text-white font-semibold py-2 px-4 rounded-lg shadow-md inline-block w-full text-center transition duration-300">
+          Get 5-Script Pack
+        </a>
       </div>
-
+      
       <!-- 10-Script Pack Card -->
-      <div class="pricing-card">
-        <div class="pricing-card-header">
-          <h3>10-Script Pack</h3>
+      <div class="pricing-card rounded-lg p-6 border border-gray-700">
+        <h3 class="text-xl font-semibold text-white mb-2 text-center">10-Script Pack</h3>
+        <div class="text-center mb-6">
+          <span class="text-4xl font-bold text-white">€600</span>
+          <p class="text-gray-400 mt-1">€60 per script</p>
+          <p class="text-sm text-indigo-400">(Save 20%)</p>
         </div>
-        <span class="pricing-price">€600</span>
-        <p class="pricing-description">€60 per script</p>
-        <p class="pricing-subtext">(Save 20%)</p>
-
-        <div class="feature-list-title">Includes:</div>
-        <ul class="feature-list">
-           <li class="feature-item">Clear Recommendation</li>
-           <li class="feature-item">Strengths & Weaknesses Summary</li>
-           <li class="feature-item">Logline & Synopsis</li>
-           <li class="feature-item">Marketability Analysis</li>
-           <li class="feature-item">Character Assessment</li>
-           <li class="feature-item">Comprehensive Craft Analysis</li>
+        
+        <p class="text-gray-300 text-sm font-medium mb-3">Includes:</p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Clear Recommendation</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Strengths & Weaknesses Summary</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Logline & Synopsis</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Marketability Analysis</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Character Assessment</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300 text-sm">Comprehensive Craft Analysis</span>
+          </li>
         </ul>
-        <a href="/contact/?service=script-analysis-10pack" class="cta-btn">Get 10-Script Pack</a>
+        <a href="/contact/?service=script-analysis-10pack" class="btn-gradient text-white font-semibold py-2 px-4 rounded-lg shadow-md inline-block w-full text-center transition duration-300">
+          Get 10-Script Pack
+        </a>
       </div>
-
     </div>
-     <p class="custom-quote-text">Need analysis for longer scripts, bulk processing beyond these packs, or custom requirements? <a href="/contact">Contact us</a> for a custom quote.</p>
+    
+    <p class="text-center text-gray-400 mt-8 max-w-3xl mx-auto">Need analysis for longer scripts, bulk processing beyond these packs, or custom requirements? <a href="/contact" class="text-indigo-400 hover:text-indigo-300">Contact us</a> for a custom quote.</p>
   </div>
-
-  <style>
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: stretch;
-      margin-bottom: 2rem;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 900px) {
-      .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    @media (max-width: 600px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </section>
 
 <!-- Final Call to Action Section -->
-<section class="content-section" style="background-color: var(--light); padding: 4rem 0; text-align: center;">
-  <div class="container">
-    <h2 style="color: var(--primary-dark); margin-bottom: 1rem;">Ready to Elevate Your Scripts?</h2>
-    <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; color: var(--secondary);">Get started with Dylan AI today and unlock powerful insights for your script development process.</p>
-    <a href="/contact/" class="cta-btn" style="background-color: var(--primary); color: white; padding: 0.9rem 2rem; font-size: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" onmouseover="this.style.backgroundColor='#e05d00';" onmouseout="this.style.backgroundColor='var(--primary)';">Contact Us Now</a>
+<section class="py-16 md:py-24 bg-gradient-to-r from-gray-900 to-gray-800">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Elevate Your Scripts?</h2>
+    <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Get started with Dylan AI today and unlock powerful insights for your script development process.</p>
+    <a href="/contact/" class="btn-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-md inline-block text-lg transition duration-300">
+      Contact Us Now
+    </a>
   </div> 
 </section> 
-
+  
   <!-- Footer Section -->
-<footer style="background-color: var(--dark); color: white; padding: 3rem 0;">
-  <div class="container">
-    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-      <div style="flex: 2; min-width: 300px;">
-        <h3 style="color: white; margin-top: 0;">SceneMind.ai</h3>
-        <p>AI-powered solutions for the film and television industry.</p>
+<footer class="bg-gray-900 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 class="text-xl font-semibold text-white mb-3">SceneMind.ai</h3>
+        <p class="text-gray-400">AI-powered solutions for the film and television industry.</p>
       </div>
       
-      <div style="flex: 1; min-width: 200px;">
-        <h4 style="color: white; margin-top: 0; margin-bottom: 1rem;">Products</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="/scan/" style="color: var(--light-gray); text-decoration: none;">Script Scanner</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/dylan/" style="color: var(--light-gray); text-decoration: none;">Dylan AI</a></li>
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-3">Products</h4>
+        <ul class="text-gray-400 space-y-2">
+          <li><a href="/scan/" class="hover:text-white transition-colors">Script Scanner</a></li>
+          <li><a href="/dylan/" class="hover:text-white transition-colors">Dylan AI</a></li>
         </ul>
       </div>
       
-      <div style="flex: 1; min-width: 200px;">
-        <h4 style="color: white; margin-top: 0; margin-bottom: 1rem;">Company</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="/about/" style="color: var(--light-gray); text-decoration: none;">About</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/contact/" style="color: var(--light-gray); text-decoration: none;">Contact</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/impressum/" style="color: var(--light-gray); text-decoration: none;">Impressum</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/privacy-policy/" style="color: var(--light-gray); text-decoration: none;">Privacy Policy</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/security/" style="color: var(--light-gray); text-decoration: none;">Data Security</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="/terms/" style="color: var(--light-gray); text-decoration: none;">Terms of Service</a></li>
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-3">Company</h4>
+        <ul class="text-gray-400 space-y-2">
+          <li><a href="/about/" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/contact/" class="hover:text-white transition-colors">Contact</a></li>
+          <li><a href="/impressum/" class="hover:text-white transition-colors">Impressum</a></li>
+          <li><a href="/privacy-policy/" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/security/" class="hover:text-white transition-colors">Data Security</a></li>
+          <li><a href="/terms/" class="hover:text-white transition-colors">Terms of Service</a></li>
         </ul>
       </div>
     </div>
     
-    <div style="margin-top: 3rem; text-align: center; color: var(--gray);">
+    <div class="text-center text-gray-400 text-sm border-t border-gray-800 pt-6">
       <p>&copy; 2025 SceneMind. All rights reserved.</p>
     </div>
   </div>
-</footer> 
+</footer>
 
   <script>
     // Mobile menu toggle
@@ -1519,4 +1120,4 @@
     });
   </script>
 </body>
-</html> 
+</html>
