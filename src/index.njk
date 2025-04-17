@@ -3,85 +3,195 @@ layout: base.njk
 title: Home - SceneMind.ai
 ---
 
-<!-- Page Header -->
-<header class="page-header">
-  <div class="container">
-    <p>AI-powered solutions for the film and TV industry</p>
-  </div>
-</header>
-
-<section class="content-section">
-    
-    <div class="product-cards">
-      <div class="product-card">
-        <h3><a href="/scan/">Script Scanner - Script to Spreadsheet</a></h3>
-        <p>AI-powered script parsing that transforms screenplay PDFs into structured data for VFX bidding and production. Identify scenes, characters, and action elements without countless hours of manual work.</p>
-        <a href="/scan/" class="btn-primary">Learn More</a>
-      </div>
-      
-      <div class="product-card">
-        <h3><a href="/dylan/">Dylan AI - Qualitative Script Analysis</a></h3>
-        <p>Insightful script evaluation for producers, executives, and development teams. Get professional-grade coverage with recommendations, marketability analysis, and detailed craft assessment.</p>
-        <a href="/dylan/" class="btn-primary">Learn More</a>
+<!-- Hero Section with Background Image -->
+<section class="relative">
+  <!-- Background Image Container -->
+  <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" style="background-image: url('/img/index_background.jpg'); filter: brightness(0.4);"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10 py-32 md:py-48">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+        AI-powered solutions for the <span class="text-indigo-400">film and TV industry</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Transform your production workflow with cutting-edge tools that save time, reduce costs, and enhance creativity
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <a href="/scan/" class="btn-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-md inline-block text-lg">
+          Explore Script Scanner
+        </a>
+        <a href="/dylan/" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md inline-block text-lg transition duration-300">
+          Discover Dylan AI
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<style>
-  body {
-    background-image: url('/img/index_background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-  }
-  .section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .product-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-  }
-  
-  .product-card {
-    flex: 1;
-    min-width: 300px;
-    max-width: 450px;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: white;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  }
-  
-  .product-icon {
-    margin-bottom: 1.5rem;
-    color: var(--primary);
-  }
-  
-  .btn-primary {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1.5rem;
-    background-color: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-  }
-  
-  .btn-primary:hover {
-    background-color: var(--primary-dark);
-  }
-</style> 
+<!-- Products Section -->
+<section class="py-16 md:py-24 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Our Products</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Script Scanner Card -->
+      <div class="pricing-card rounded-lg p-8 transform transition-all duration-300 hover:translate-y-[-8px] hover:shadow-lg">
+        <div class="mb-6 flex justify-center">
+          <!-- Placeholder for Script Scanner icon/image -->
+          <div class="w-24 h-24 bg-indigo-900/50 rounded-full flex items-center justify-center">
+            <span class="text-5xl text-indigo-400">📊</span>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-white mb-4 text-center">Script Scanner</h3>
+        <h4 class="text-lg text-indigo-400 mb-6 text-center">Script to Spreadsheet</h4>
+        <p class="text-gray-300 mb-6">AI-powered script parsing that transforms screenplay PDFs into structured data for VFX bidding and production. Identify scenes, characters, and action elements without countless hours of manual work.</p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300">Extract all scenes, characters, and key elements</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300">Create VFX breakdown sheets automatically</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300">Save hours of manual data entry</span>
+          </li>
+        </ul>
+        <div class="text-center">
+          <a href="/scan/" class="btn-gradient text-white font-semibold py-2 px-6 rounded-lg shadow-md inline-block transition duration-300">
+            Learn More
+          </a>
+        </div>
+      </div>
+      
+      <!-- Dylan AI Card -->
+      <div class="pricing-card rounded-lg p-8 transform transition-all duration-300 hover:translate-y-[-8px] hover:shadow-lg">
+        <div class="mb-6 flex justify-center">
+          <!-- Placeholder for Dylan AI icon/image -->
+          <div class="w-24 h-24 bg-indigo-900/50 rounded-full flex items-center justify-center">
+            <span class="text-5xl text-indigo-400">🔍</span>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-white mb-4 text-center">Dylan AI</h3>
+        <h4 class="text-lg text-indigo-400 mb-6 text-center">Qualitative Script Analysis</h4>
+        <p class="text-gray-300 mb-6">Insightful script evaluation for producers, executives, and development teams. Get professional-grade coverage with recommendations, marketability analysis, and detailed craft assessment.</p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300">Comprehensive script coverage and evaluation</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300">Market potential analysis and positioning</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-300">Structured reports with actionable insights</span>
+          </li>
+        </ul>
+        <div class="text-center">
+          <a href="/dylan/" class="btn-gradient text-white font-semibold py-2 px-6 rounded-lg shadow-md inline-block transition duration-300">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-16 md:py-24 bg-gray-800/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Why Choose SceneMind.ai</h2>
+    <p class="text-lg text-gray-300 mb-12 max-w-3xl mx-auto text-center">Our AI-powered tools are designed specifically for film and TV production professionals</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">⚡</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Save Time</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Automate time-consuming tasks like script breakdowns and coverage, reducing weeks of work to hours.</p>
+      </div>
+      
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">💰</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Reduce Costs</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Lower production costs through better planning, more accurate budgeting, and optimized resource allocation.</p>
+      </div>
+      
+      <div class="pricing-card rounded-lg p-6">
+        <div class="text-center mb-4">
+          <span class="text-3xl text-indigo-400">🔒</span>
+          <h3 class="text-xl font-semibold text-white mt-2">Complete Privacy</h3>
+        </div>
+        <p class="text-gray-400 text-sm">Your scripts and data are treated with the utmost confidentiality, with secure processing and NDAs available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-16 md:py-24 bg-gray-900">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">What Our Clients Say</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="pricing-card rounded-lg p-6 border border-gray-700">
+        <p class="text-gray-300 mb-4 italic">"SceneMind.ai's Script Scanner transformed our VFX bidding process. What used to take my team days now takes hours, with greater accuracy and consistency."</p>
+        <div class="flex items-center">
+          <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center mr-3">
+            <span class="text-white font-semibold">JD</span>
+          </div>
+          <div>
+            <h4 class="text-white font-medium">Jane Doe</h4>
+            <p class="text-gray-400 text-sm">VFX Producer, Major Studio</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pricing-card rounded-lg p-6 border border-gray-700">
+        <p class="text-gray-300 mb-4 italic">"Dylan AI provides insightful coverage that helps our development team prioritize scripts efficiently. The market analysis has been particularly valuable for our decision-making process."</p>
+        <div class="flex items-center">
+          <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center mr-3">
+            <span class="text-white font-semibold">JS</span>
+          </div>
+          <div>
+            <h4 class="text-white font-medium">John Smith</h4>
+            <p class="text-gray-400 text-sm">Development Executive, Production Company</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 md:py-24 bg-gradient-to-r from-gray-900 to-gray-800">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to transform your workflow?</h2>
+    <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Join studios and production companies who are saving time and improving results with SceneMind.ai</p>
+    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <a href="/contact/" class="btn-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-md inline-block text-lg transition duration-300">
+        Contact Us Today
+      </a>
+    </div>
+  </div>
+</section>
