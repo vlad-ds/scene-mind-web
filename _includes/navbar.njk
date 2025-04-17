@@ -1,5 +1,5 @@
 <!-- Navigation Bar -->
-<nav class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 py-4">
+<nav class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50 py-4" x-data="{ mobileMenuOpen: false }">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
     <div class="flex items-center">
       <svg class="h-8 w-auto text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -39,7 +39,7 @@
       <a href="/contact/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium {% if page.url == '/contact/' %}text-white{% endif %}">Contact</a>
     </div>
     <div class="md:hidden">
-      <button class="text-gray-400 hover:text-white focus:outline-none focus:text-white" id="navbar-toggle">
+      <button class="text-gray-400 hover:text-white focus:outline-none focus:text-white" @click="mobileMenuOpen = !mobileMenuOpen" aria-label="Toggle menu">
         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
@@ -47,7 +47,15 @@
     </div>
   </div>
   <!-- Mobile menu, show/hide based on menu state -->
-  <div class="hidden md:hidden" id="navbar-menu">
+  <div x-show="mobileMenuOpen" 
+       x-transition:enter="transition ease-out duration-100"
+       x-transition:enter-start="transform opacity-0 scale-95"
+       x-transition:enter-end="transform opacity-100 scale-100"
+       x-transition:leave="transition ease-in duration-75"
+       x-transition:leave-start="transform opacity-100 scale-100"
+       x-transition:leave-end="transform opacity-0 scale-95"
+       class="md:hidden"
+       style="display: none;">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       <a href="/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium {% if page.url == '/' %}text-white bg-gray-800{% endif %}">Home</a>
       
